@@ -1,0 +1,10 @@
+{
+ "what": "The one money assumption the pages use to price review work. Assumed, not measured; added after the results to value them, and it changes no result.",
+ "cost_per_item_reviewed_usd": {
+  "low": 5,
+  "mid": 15,
+  "high": 25,
+  "meaning": "the cost of a person looking at one item on the exceptions list (a break) once, all in"
+ },
+ "items_counted": "breaks per rule over the county's 2024 closes (results-r1.json county.clean.<rule>.break_age_business_days.breaks) and paper checks flagged before clearing per window (county.window_sweep_R3)"
+}

@@ -1,0 +1,15 @@
+{
+ "added_after_the_results": true,
+ "computed_after_version_2_ran": true,
+ "window_business_days": 5,
+ "debits_within_reach_paired_wrong": {
+  "older_issue_day": 135,
+  "other_supplier": 1301,
+  "same_cents": 1121,
+  "same_cents_and_same_issue_day": 1011,
+  "same_issue_day": 1170,
+  "same_supplier": 4,
+  "within_us1_not_same_cents": 184,
+  "wrong": 1305
+ }
+}

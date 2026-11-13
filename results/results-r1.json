@@ -1,0 +1,875 @@
+{
+ "window_business_days": 5,
+ "county": {
+  "feeds": {
+   "ledger_lines": 45417,
+   "excluded_zero_net_lines": 709,
+   "register_payments": 13354,
+   "bank_lines": 13101,
+   "voids": 24,
+   "payments_by_type_status": {
+    "Electronic Paid": 5062,
+    "Other Disbursed": 2,
+    "Paper Cancelled": 24,
+    "Paper Disbursed": 227,
+    "Paper Paid": 8039
+   },
+   "multi_line_payments": 5082,
+   "multi_line_money_usd": 381500886.17,
+   "money_in_payments_usd": 605400363.83
+  },
+  "anomalies": {
+   "several_disbursement_dates": 171,
+   "zero_net_documents": 173,
+   "never_cleared_payments": 229,
+   "never_cleared_usd": 5861259.68
+  },
+  "published_totals_usd": {
+   "all": 605400363.83,
+   "Disbursed": 5861259.68,
+   "Paid": 598354126.44,
+   "Cancelled": 1184977.71
+  },
+  "tie_month_ends": {
+   "2024-01-31": {
+    "issued_less_voids_less_cleared_usd": 5071646.09,
+    "open_payments_usd": 5071646.09,
+    "gap_cents": 0
+   },
+   "2024-02-29": {
+    "issued_less_voids_less_cleared_usd": 3008380.72,
+    "open_payments_usd": 3008380.72,
+    "gap_cents": 0
+   },
+   "2024-03-29": {
+    "issued_less_voids_less_cleared_usd": 32027850.36,
+    "open_payments_usd": 32027850.36,
+    "gap_cents": 0
+   },
+   "2024-04-30": {
+    "issued_less_voids_less_cleared_usd": 20224542.91,
+    "open_payments_usd": 20224542.91,
+    "gap_cents": 0
+   },
+   "2024-05-31": {
+    "issued_less_voids_less_cleared_usd": 16301226.11,
+    "open_payments_usd": 16301226.11,
+    "gap_cents": 0
+   },
+   "2024-06-28": {
+    "issued_less_voids_less_cleared_usd": 15842167.39,
+    "open_payments_usd": 15842167.39,
+    "gap_cents": 0
+   },
+   "2024-07-31": {
+    "issued_less_voids_less_cleared_usd": 18962519.53,
+    "open_payments_usd": 18962519.53,
+    "gap_cents": 0
+   },
+   "2024-08-30": {
+    "issued_less_voids_less_cleared_usd": 14780954.9,
+    "open_payments_usd": 14780954.9,
+    "gap_cents": 0
+   },
+   "2024-09-30": {
+    "issued_less_voids_less_cleared_usd": 12997018.04,
+    "open_payments_usd": 12997018.04,
+    "gap_cents": 0
+   },
+   "2024-10-31": {
+    "issued_less_voids_less_cleared_usd": 18950178.34,
+    "open_payments_usd": 18950178.34,
+    "gap_cents": 0
+   },
+   "2024-11-29": {
+    "issued_less_voids_less_cleared_usd": 20032163.46,
+    "open_payments_usd": 20032163.46,
+    "gap_cents": 0
+   },
+   "2024-12-31": {
+    "issued_less_voids_less_cleared_usd": 21502927.27,
+    "open_payments_usd": 21502927.27,
+    "gap_cents": 0
+   }
+  },
+  "clean": {
+   "R1": {
+    "pairs_books_to_intermediary": 8272,
+    "pairs_intermediary_to_bank": 13101,
+    "pairs_by_fallback": 0,
+    "bank_lines": 13101,
+    "false_matches": 0,
+    "false_matches_usd": 0.0,
+    "false_matches_per_1000_bank_lines": 0.0,
+    "unexplained_mean_usd": {
+     "all": 322953150.65,
+     "rule": 318574625.74,
+     "timing": 3156265.57,
+     "none": 1222259.34
+    },
+    "unexplained_mean_share_of_money_moved": 0.5335,
+    "unexplained_month_end_usd": {
+     "2024-01-31": 23003692.97,
+     "2024-02-29": 52858554.81,
+     "2024-03-29": 92264736.27,
+     "2024-04-30": 166302872.52,
+     "2024-05-31": 243333594.75,
+     "2024-06-28": 314681519.95,
+     "2024-07-31": 369865383.52,
+     "2024-08-30": 444273753.08,
+     "2024-09-30": 525684402.18,
+     "2024-10-31": 584227207.3,
+     "2024-11-29": 644126581.65,
+     "2024-12-31": 753154943.4
+    },
+    "unexplained_last_close_usd": {
+     "all": 753154943.4,
+     "rule": 742337811.98,
+     "timing": 5711894.62,
+     "none": 5105236.8
+    },
+    "break_age_business_days": {
+     "breaks": 46180,
+     "closed": 3817,
+     "censored": 42363,
+     "median": 4,
+     "p90": 23
+    }
+   },
+   "R2": {
+    "pairs_books_to_intermediary": 8275,
+    "pairs_intermediary_to_bank": 8797,
+    "pairs_by_fallback": 543,
+    "bank_lines": 13101,
+    "false_matches": 543,
+    "false_matches_usd": 2837842.58,
+    "false_matches_per_1000_bank_lines": 41.4,
+    "unexplained_mean_usd": {
+     "all": 474025021.27,
+     "rule": 469674877.51,
+     "timing": 3129443.26,
+     "none": 1220700.5
+    },
+    "unexplained_mean_share_of_money_moved": 0.783,
+    "unexplained_month_end_usd": {
+     "2024-01-31": 26704736.86,
+     "2024-02-29": 63812054.21,
+     "2024-03-29": 113645959.27,
+     "2024-04-30": 229864321.3,
+     "2024-05-31": 381224613.36,
+     "2024-06-28": 482767310.28,
+     "2024-07-31": 560593854.68,
+     "2024-08-30": 668125304.14,
+     "2024-09-30": 773905256.06,
+     "2024-10-31": 857564942.27,
+     "2024-11-29": 931423814.65,
+     "2024-12-31": 1082098322.19
+    },
+    "unexplained_last_close_usd": {
+     "all": 1082098322.19,
+     "rule": 1071434591.62,
+     "timing": 5582803.27,
+     "none": 5080927.3
+    },
+    "break_age_business_days": {
+     "breaks": 51082,
+     "closed": 116,
+     "censored": 50966,
+     "median": 53,
+     "p90": 310
+    }
+   },
+   "R3": {
+    "pairs_books_to_intermediary": 45417,
+    "pairs_intermediary_to_bank": 13101,
+    "pairs_by_fallback": 0,
+    "bank_lines": 13101,
+    "false_matches": 0,
+    "false_matches_usd": 0.0,
+    "false_matches_per_1000_bank_lines": 0.0,
+    "unexplained_mean_usd": {
+     "all": 4378524.91,
+     "rule": 0.0,
+     "timing": 3156265.57,
+     "none": 1222259.34
+    },
+    "unexplained_mean_share_of_money_moved": 0.0072,
+    "unexplained_month_end_usd": {
+     "2024-01-31": 1880384.35,
+     "2024-02-29": 528063.77,
+     "2024-03-29": 2799417.65,
+     "2024-04-30": 8233185.44,
+     "2024-05-31": 2583087.63,
+     "2024-06-28": 6019793.95,
+     "2024-07-31": 5371352.42,
+     "2024-08-30": 2921810.44,
+     "2024-09-30": 3919283.8,
+     "2024-10-31": 4203771.18,
+     "2024-11-29": 5973672.51,
+     "2024-12-31": 10817131.42
+    },
+    "unexplained_last_close_usd": {
+     "all": 10817131.42,
+     "rule": 0.0,
+     "timing": 5711894.62,
+     "none": 5105236.8
+    },
+    "break_age_business_days": {
+     "breaks": 3953,
+     "closed": 3724,
+     "censored": 229,
+     "median": 4,
+     "p90": 21
+    }
+   }
+  },
+  "planted": {
+   "R1": {
+    "C1": {
+     "instances": 20,
+     "correct_call": "flag",
+     "flagged": 20,
+     "right_calls": 20,
+     "not_flagged_through_a_false_match": 0,
+     "false_matches_in_run": 0
+    },
+    "C2": {
+     "instances": 20,
+     "correct_call": "explain",
+     "flagged": 20,
+     "right_calls": 0,
+     "not_flagged_through_a_false_match": 0,
+     "false_matches_in_run": 0,
+     "outcomes": {
+      "left open": 20
+     }
+    },
+    "C3": {
+     "instances": 20,
+     "correct_call": "flag",
+     "flagged": 20,
+     "right_calls": 20,
+     "not_flagged_through_a_false_match": 0,
+     "false_matches_in_run": 0
+    },
+    "C4": {
+     "instances": 20,
+     "correct_call": "flag",
+     "flagged": 0,
+     "right_calls": 0,
+     "not_flagged_through_a_false_match": 0,
+     "false_matches_in_run": 0
+    },
+    "C5": {
+     "instances": 20,
+     "correct_call": "flag",
+     "flagged": 20,
+     "right_calls": 20,
+     "not_flagged_through_a_false_match": 0,
+     "false_matches_in_run": 0
+    },
+    "C6": {
+     "instances": 20,
+     "correct_call": "flag",
+     "flagged": 20,
+     "right_calls": 20,
+     "not_flagged_through_a_false_match": 0,
+     "false_matches_in_run": 0
+    },
+    "C7": {
+     "instances": 20,
+     "correct_call": "explain",
+     "flagged": 20,
+     "right_calls": 0,
+     "not_flagged_through_a_false_match": 0,
+     "false_matches_in_run": 0
+    },
+    "C8": {
+     "instances": 20,
+     "correct_call": "flag",
+     "flagged": 20,
+     "right_calls": 20,
+     "not_flagged_through_a_false_match": 0,
+     "false_matches_in_run": 0
+    }
+   },
+   "R2": {
+    "C1": {
+     "instances": 20,
+     "correct_call": "flag",
+     "flagged": 18,
+     "right_calls": 18,
+     "not_flagged_through_a_false_match": 2,
+     "false_matches_in_run": 545
+    },
+    "C2": {
+     "instances": 20,
+     "correct_call": "explain",
+     "flagged": 14,
+     "right_calls": 6,
+     "not_flagged_through_a_false_match": 1,
+     "false_matches_in_run": 546,
+     "outcomes": {
+      "left open": 8,
+      "wrong payment": 6,
+      "right payment": 6
+     }
+    },
+    "C3": {
+     "instances": 20,
+     "correct_call": "flag",
+     "flagged": 20,
+     "right_calls": 20,
+     "not_flagged_through_a_false_match": 0,
+     "false_matches_in_run": 543
+    },
+    "C4": {
+     "instances": 20,
+     "correct_call": "flag",
+     "flagged": 1,
+     "right_calls": 1,
+     "not_flagged_through_a_false_match": 0,
+     "false_matches_in_run": 544
+    },
+    "C5": {
+     "instances": 20,
+     "correct_call": "flag",
+     "flagged": 18,
+     "right_calls": 18,
+     "not_flagged_through_a_false_match": 2,
+     "false_matches_in_run": 541
+    },
+    "C6": {
+     "instances": 20,
+     "correct_call": "flag",
+     "flagged": 18,
+     "right_calls": 18,
+     "not_flagged_through_a_false_match": 2,
+     "false_matches_in_run": 545
+    },
+    "C7": {
+     "instances": 20,
+     "correct_call": "explain",
+     "flagged": 19,
+     "right_calls": 1,
+     "not_flagged_through_a_false_match": 1,
+     "false_matches_in_run": 548
+    },
+    "C8": {
+     "instances": 20,
+     "correct_call": "flag",
+     "flagged": 19,
+     "right_calls": 19,
+     "not_flagged_through_a_false_match": 1,
+     "false_matches_in_run": 544
+    }
+   },
+   "R3": {
+    "C1": {
+     "instances": 20,
+     "correct_call": "flag",
+     "flagged": 20,
+     "right_calls": 20,
+     "not_flagged_through_a_false_match": 0,
+     "false_matches_in_run": 0
+    },
+    "C2": {
+     "instances": 20,
+     "correct_call": "explain",
+     "flagged": 20,
+     "right_calls": 0,
+     "not_flagged_through_a_false_match": 0,
+     "false_matches_in_run": 0,
+     "outcomes": {
+      "left open": 20
+     }
+    },
+    "C3": {
+     "instances": 20,
+     "correct_call": "flag",
+     "flagged": 20,
+     "right_calls": 20,
+     "not_flagged_through_a_false_match": 0,
+     "false_matches_in_run": 0
+    },
+    "C4": {
+     "instances": 20,
+     "correct_call": "flag",
+     "flagged": 0,
+     "right_calls": 0,
+     "not_flagged_through_a_false_match": 0,
+     "false_matches_in_run": 0
+    },
+    "C5": {
+     "instances": 20,
+     "correct_call": "flag",
+     "flagged": 20,
+     "right_calls": 20,
+     "not_flagged_through_a_false_match": 0,
+     "false_matches_in_run": 0
+    },
+    "C6": {
+     "instances": 20,
+     "correct_call": "flag",
+     "flagged": 20,
+     "right_calls": 20,
+     "not_flagged_through_a_false_match": 0,
+     "false_matches_in_run": 0
+    },
+    "C7": {
+     "instances": 20,
+     "correct_call": "explain",
+     "flagged": 20,
+     "right_calls": 0,
+     "not_flagged_through_a_false_match": 0,
+     "false_matches_in_run": 0
+    },
+    "C8": {
+     "instances": 20,
+     "correct_call": "flag",
+     "flagged": 20,
+     "right_calls": 20,
+     "not_flagged_through_a_false_match": 0,
+     "false_matches_in_run": 0
+    }
+   }
+  },
+  "window_sweep_R3": {
+   "3": {
+    "by_type": {
+     "Paper": {
+      "cleared_payments": 8039,
+      "break_before_clearing": 5681,
+      "share": 0.7067
+     },
+     "Electronic": {
+      "cleared_payments": 5062,
+      "break_before_clearing": 0,
+      "share": 0.0
+     }
+    },
+    "never_cleared_flagged": 20,
+    "never_cleared_delay_median": 4.0
+   },
+   "5": {
+    "by_type": {
+     "Paper": {
+      "cleared_payments": 8039,
+      "break_before_clearing": 3700,
+      "share": 0.4603
+     },
+     "Electronic": {
+      "cleared_payments": 5062,
+      "break_before_clearing": 0,
+      "share": 0.0
+     }
+    },
+    "never_cleared_flagged": 20,
+    "never_cleared_delay_median": 6.0
+   },
+   "10": {
+    "by_type": {
+     "Paper": {
+      "cleared_payments": 8039,
+      "break_before_clearing": 1437,
+      "share": 0.1788
+     },
+     "Electronic": {
+      "cleared_payments": 5062,
+      "break_before_clearing": 0,
+      "share": 0.0
+     }
+    },
+    "never_cleared_flagged": 20,
+    "never_cleared_delay_median": 11.0
+   },
+   "15": {
+    "by_type": {
+     "Paper": {
+      "cleared_payments": 8039,
+      "break_before_clearing": 794,
+      "share": 0.0988
+     },
+     "Electronic": {
+      "cleared_payments": 5062,
+      "break_before_clearing": 0,
+      "share": 0.0
+     }
+    },
+    "never_cleared_flagged": 20,
+    "never_cleared_delay_median": 16.0
+   },
+   "20": {
+    "by_type": {
+     "Paper": {
+      "cleared_payments": 8039,
+      "break_before_clearing": 496,
+      "share": 0.0617
+     },
+     "Electronic": {
+      "cleared_payments": 5062,
+      "break_before_clearing": 0,
+      "share": 0.0
+     }
+    },
+    "never_cleared_flagged": 20,
+    "never_cleared_delay_median": 21.0
+   },
+   "30": {
+    "by_type": {
+     "Paper": {
+      "cleared_payments": 8039,
+      "break_before_clearing": 226,
+      "share": 0.0281
+     },
+     "Electronic": {
+      "cleared_payments": 5062,
+      "break_before_clearing": 0,
+      "share": 0.0
+     }
+    },
+    "never_cleared_flagged": 20,
+    "never_cleared_delay_median": 31.0
+   },
+   "40": {
+    "by_type": {
+     "Paper": {
+      "cleared_payments": 8039,
+      "break_before_clearing": 133,
+      "share": 0.0165
+     },
+     "Electronic": {
+      "cleared_payments": 5062,
+      "break_before_clearing": 0,
+      "share": 0.0
+     }
+    },
+    "never_cleared_flagged": 20,
+    "never_cleared_delay_median": 41.0
+   },
+   "60": {
+    "by_type": {
+     "Paper": {
+      "cleared_payments": 8039,
+      "break_before_clearing": 63,
+      "share": 0.0078
+     },
+     "Electronic": {
+      "cleared_payments": 5062,
+      "break_before_clearing": 0,
+      "share": 0.0
+     }
+    },
+    "never_cleared_flagged": 20,
+    "never_cleared_delay_median": 61.0
+   }
+  }
+ },
+ "processor": {
+  "feeds": {
+   "charges": 19692,
+   "ledger_items": 20120,
+   "settlement_rows": {
+    "charge": 19529,
+    "fee": 19529,
+    "refund": 532,
+    "chargeback": 43,
+    "reversal": 16,
+    "payout": 102
+   },
+   "bank_lines": 101,
+   "carried_batches": 25,
+   "money_paid_out_usd": 1464064.53,
+   "fees_usd": 51412.86
+  },
+  "clean": {
+   "R1": {
+    "pairs_books_to_intermediary": 20120,
+    "pairs_intermediary_to_bank": 101,
+    "pairs_by_fallback": 0,
+    "bank_lines": 101,
+    "false_matches": 0,
+    "false_matches_usd": 0.0,
+    "false_matches_per_1000_bank_lines": 0.0,
+    "unexplained_mean_usd": {
+     "all": 26089.69,
+     "rule": 24960.71,
+     "timing": 1128.98,
+     "none": 0.0
+    },
+    "unexplained_mean_share_of_money_moved": 0.0178,
+    "unexplained_month_end_usd": {
+     "2025-01-31": 7130.79,
+     "2025-02-28": 15601.8,
+     "2025-03-31": 24059.63,
+     "2025-04-30": 33386.17,
+     "2025-05-30": 40519.96,
+     "2025-06-30": 48859.95
+    },
+    "unexplained_last_close_usd": {
+     "all": 48859.95,
+     "rule": 48859.95,
+     "timing": 0.0,
+     "none": 0.0
+    },
+    "break_age_business_days": {
+     "breaks": 18666,
+     "closed": 86,
+     "censored": 18580,
+     "median": 20,
+     "p90": 31
+    }
+   },
+   "R2": {
+    "pairs_books_to_intermediary": 20120,
+    "pairs_intermediary_to_bank": 101,
+    "pairs_by_fallback": 0,
+    "bank_lines": 101,
+    "false_matches": 0,
+    "false_matches_usd": 0.0,
+    "false_matches_per_1000_bank_lines": 0.0,
+    "unexplained_mean_usd": {
+     "all": 26089.69,
+     "rule": 24960.71,
+     "timing": 1128.98,
+     "none": 0.0
+    },
+    "unexplained_mean_share_of_money_moved": 0.0178,
+    "unexplained_month_end_usd": {
+     "2025-01-31": 7130.79,
+     "2025-02-28": 15601.8,
+     "2025-03-31": 24059.63,
+     "2025-04-30": 33386.17,
+     "2025-05-30": 40519.96,
+     "2025-06-30": 48859.95
+    },
+    "unexplained_last_close_usd": {
+     "all": 48859.95,
+     "rule": 48859.95,
+     "timing": 0.0,
+     "none": 0.0
+    },
+    "break_age_business_days": {
+     "breaks": 18666,
+     "closed": 86,
+     "censored": 18580,
+     "median": 20,
+     "p90": 31
+    }
+   },
+   "R3": {
+    "pairs_books_to_intermediary": 20120,
+    "pairs_intermediary_to_bank": 101,
+    "pairs_by_fallback": 0,
+    "bank_lines": 101,
+    "false_matches": 0,
+    "false_matches_usd": 0.0,
+    "false_matches_per_1000_bank_lines": 0.0,
+    "unexplained_mean_usd": {
+     "all": 1128.98,
+     "rule": 0.0,
+     "timing": 1128.98,
+     "none": 0.0
+    },
+    "unexplained_mean_share_of_money_moved": 0.0008,
+    "unexplained_month_end_usd": {
+     "2025-01-31": 796.94,
+     "2025-02-28": 1703.58,
+     "2025-03-31": 1793.88,
+     "2025-04-30": 1811.38,
+     "2025-05-30": 116.0,
+     "2025-06-30": 0.0
+    },
+    "unexplained_last_close_usd": {
+     "all": 0.0,
+     "rule": 0.0,
+     "timing": 0.0,
+     "none": 0.0
+    },
+    "break_age_business_days": {
+     "breaks": 86,
+     "closed": 86,
+     "censored": 0,
+     "median": 20,
+     "p90": 31
+    }
+   }
+  },
+  "planted": {
+   "R1": {
+    "X1": {
+     "instances": 20,
+     "correct_call": "explain",
+     "flagged": 20,
+     "right_calls": 0,
+     "not_flagged_through_a_false_match": 0,
+     "false_matches_in_run": 0
+    },
+    "X2": {
+     "instances": 20,
+     "correct_call": "flag",
+     "flagged": 20,
+     "right_calls": 20,
+     "not_flagged_through_a_false_match": 0,
+     "false_matches_in_run": 0
+    },
+    "X3": {
+     "instances": 20,
+     "correct_call": "flag",
+     "flagged": 20,
+     "right_calls": 20,
+     "not_flagged_through_a_false_match": 0,
+     "false_matches_in_run": 0
+    },
+    "X4": {
+     "instances": 20,
+     "correct_call": "flag",
+     "flagged": 20,
+     "right_calls": 20,
+     "not_flagged_through_a_false_match": 0,
+     "false_matches_in_run": 0
+    },
+    "X5": {
+     "instances": 20,
+     "correct_call": "flag",
+     "flagged": 20,
+     "right_calls": 20,
+     "not_flagged_through_a_false_match": 0,
+     "false_matches_in_run": 0
+    },
+    "X6": {
+     "instances": 20,
+     "correct_call": "explain",
+     "flagged": 20,
+     "right_calls": 0,
+     "not_flagged_through_a_false_match": 0,
+     "false_matches_in_run": 0
+    },
+    "X7": {
+     "instances": 20,
+     "correct_call": "flag",
+     "flagged": 20,
+     "right_calls": 20,
+     "not_flagged_through_a_false_match": 0,
+     "false_matches_in_run": 0
+    }
+   },
+   "R2": {
+    "X1": {
+     "instances": 20,
+     "correct_call": "explain",
+     "flagged": 20,
+     "right_calls": 0,
+     "not_flagged_through_a_false_match": 0,
+     "false_matches_in_run": 0
+    },
+    "X2": {
+     "instances": 20,
+     "correct_call": "flag",
+     "flagged": 20,
+     "right_calls": 20,
+     "not_flagged_through_a_false_match": 0,
+     "false_matches_in_run": 0
+    },
+    "X3": {
+     "instances": 20,
+     "correct_call": "flag",
+     "flagged": 20,
+     "right_calls": 20,
+     "not_flagged_through_a_false_match": 0,
+     "false_matches_in_run": 0
+    },
+    "X4": {
+     "instances": 20,
+     "correct_call": "flag",
+     "flagged": 20,
+     "right_calls": 20,
+     "not_flagged_through_a_false_match": 0,
+     "false_matches_in_run": 0
+    },
+    "X5": {
+     "instances": 20,
+     "correct_call": "flag",
+     "flagged": 20,
+     "right_calls": 20,
+     "not_flagged_through_a_false_match": 0,
+     "false_matches_in_run": 0
+    },
+    "X6": {
+     "instances": 20,
+     "correct_call": "explain",
+     "flagged": 0,
+     "right_calls": 20,
+     "not_flagged_through_a_false_match": 0,
+     "false_matches_in_run": 0
+    },
+    "X7": {
+     "instances": 20,
+     "correct_call": "flag",
+     "flagged": 20,
+     "right_calls": 20,
+     "not_flagged_through_a_false_match": 0,
+     "false_matches_in_run": 0
+    }
+   },
+   "R3": {
+    "X1": {
+     "instances": 20,
+     "correct_call": "explain",
+     "flagged": 0,
+     "right_calls": 20,
+     "not_flagged_through_a_false_match": 0,
+     "false_matches_in_run": 0
+    },
+    "X2": {
+     "instances": 20,
+     "correct_call": "flag",
+     "flagged": 20,
+     "right_calls": 20,
+     "not_flagged_through_a_false_match": 0,
+     "false_matches_in_run": 0
+    },
+    "X3": {
+     "instances": 20,
+     "correct_call": "flag",
+     "flagged": 20,
+     "right_calls": 20,
+     "not_flagged_through_a_false_match": 0,
+     "false_matches_in_run": 0
+    },
+    "X4": {
+     "instances": 20,
+     "correct_call": "flag",
+     "flagged": 20,
+     "right_calls": 20,
+     "not_flagged_through_a_false_match": 0,
+     "false_matches_in_run": 0
+    },
+    "X5": {
+     "instances": 20,
+     "correct_call": "flag",
+     "flagged": 0,
+     "right_calls": 0,
+     "not_flagged_through_a_false_match": 0,
+     "false_matches_in_run": 0
+    },
+    "X6": {
+     "instances": 20,
+     "correct_call": "explain",
+     "flagged": 20,
+     "right_calls": 0,
+     "not_flagged_through_a_false_match": 0,
+     "false_matches_in_run": 0
+    },
+    "X7": {
+     "instances": 20,
+     "correct_call": "flag",
+     "flagged": 20,
+     "right_calls": 20,
+     "not_flagged_through_a_false_match": 0,
+     "false_matches_in_run": 0
+    }
+   }
+  }
+ }
+}

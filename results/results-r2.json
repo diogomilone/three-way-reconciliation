@@ -1,0 +1,298 @@
+{
+ "version": 2,
+ "added_after_the_results": true,
+ "declared_in": "DESIGN-r2.md and predictions-r2.json",
+ "window_business_days_of_version_1": 5,
+ "fallback_sweep_county": {
+  "3": {
+   "pairs_by_fallback": 540,
+   "right_fallback_pairings": 0,
+   "false_matches_bank_join": 540,
+   "false_matches_per_1000_bank_lines": 41.2,
+   "false_matches_usd": 2724139.65,
+   "fallback_bank_line_lag_within_window": 18,
+   "fallback_bank_line_lag_within_window_by_type": {
+    "Electronic": 1,
+    "Paper": 17
+   },
+   "fallback_bank_line_lag_beyond_window": 522
+  },
+  "5": {
+   "pairs_by_fallback": 543,
+   "right_fallback_pairings": 0,
+   "false_matches_bank_join": 543,
+   "false_matches_per_1000_bank_lines": 41.4,
+   "false_matches_usd": 2837842.58,
+   "fallback_bank_line_lag_within_window": 44,
+   "fallback_bank_line_lag_within_window_by_type": {
+    "Electronic": 1,
+    "Paper": 43
+   },
+   "fallback_bank_line_lag_beyond_window": 499
+  },
+  "10": {
+   "pairs_by_fallback": 352,
+   "right_fallback_pairings": 0,
+   "false_matches_bank_join": 352,
+   "false_matches_per_1000_bank_lines": 26.9,
+   "false_matches_usd": 1534791.98,
+   "fallback_bank_line_lag_within_window": 80,
+   "fallback_bank_line_lag_within_window_by_type": {
+    "Electronic": 1,
+    "Paper": 79
+   },
+   "fallback_bank_line_lag_beyond_window": 272
+  },
+  "15": {
+   "pairs_by_fallback": 226,
+   "right_fallback_pairings": 0,
+   "false_matches_bank_join": 226,
+   "false_matches_per_1000_bank_lines": 17.3,
+   "false_matches_usd": 791611.07,
+   "fallback_bank_line_lag_within_window": 68,
+   "fallback_bank_line_lag_within_window_by_type": {
+    "Electronic": 1,
+    "Paper": 67
+   },
+   "fallback_bank_line_lag_beyond_window": 158
+  },
+  "20": {
+   "pairs_by_fallback": 160,
+   "right_fallback_pairings": 0,
+   "false_matches_bank_join": 160,
+   "false_matches_per_1000_bank_lines": 12.2,
+   "false_matches_usd": 301117.01,
+   "fallback_bank_line_lag_within_window": 56,
+   "fallback_bank_line_lag_within_window_by_type": {
+    "Electronic": 1,
+    "Paper": 55
+   },
+   "fallback_bank_line_lag_beyond_window": 104
+  },
+  "30": {
+   "pairs_by_fallback": 91,
+   "right_fallback_pairings": 0,
+   "false_matches_bank_join": 91,
+   "false_matches_per_1000_bank_lines": 6.9,
+   "false_matches_usd": 197929.84,
+   "fallback_bank_line_lag_within_window": 39,
+   "fallback_bank_line_lag_within_window_by_type": {
+    "Electronic": 1,
+    "Paper": 38
+   },
+   "fallback_bank_line_lag_beyond_window": 52
+  },
+  "40": {
+   "pairs_by_fallback": 77,
+   "right_fallback_pairings": 0,
+   "false_matches_bank_join": 77,
+   "false_matches_per_1000_bank_lines": 5.9,
+   "false_matches_usd": 167158.12,
+   "fallback_bank_line_lag_within_window": 35,
+   "fallback_bank_line_lag_within_window_by_type": {
+    "Electronic": 1,
+    "Paper": 34
+   },
+   "fallback_bank_line_lag_beyond_window": 42
+  },
+  "60": {
+   "pairs_by_fallback": 32,
+   "right_fallback_pairings": 0,
+   "false_matches_bank_join": 32,
+   "false_matches_per_1000_bank_lines": 2.4,
+   "false_matches_usd": 106900.1,
+   "fallback_bank_line_lag_within_window": 14,
+   "fallback_bank_line_lag_within_window_by_type": {
+    "Paper": 14
+   },
+   "fallback_bank_line_lag_beyond_window": 18
+  }
+ },
+ "hidden_reference_county": {
+  "3": {
+   "debits": 13101,
+   "within_reach": 6429,
+   "right": 5242,
+   "wrong": 1775,
+   "none": 6084,
+   "right_within_reach": 5242,
+   "wrong_within_reach": 1187,
+   "none_within_reach": 0,
+   "wrong_per_1000_within_reach": 184.6,
+   "wrong_per_1000_debits": 135.5
+  },
+  "5": {
+   "debits": 13101,
+   "within_reach": 8430,
+   "right": 7125,
+   "wrong": 1865,
+   "none": 4111,
+   "right_within_reach": 7125,
+   "wrong_within_reach": 1305,
+   "none_within_reach": 0,
+   "wrong_per_1000_within_reach": 154.8,
+   "wrong_per_1000_debits": 142.4
+  },
+  "10": {
+   "debits": 13101,
+   "within_reach": 11418,
+   "right": 9750,
+   "wrong": 1967,
+   "none": 1384,
+   "right_within_reach": 9750,
+   "wrong_within_reach": 1668,
+   "none_within_reach": 0,
+   "wrong_per_1000_within_reach": 146.1,
+   "wrong_per_1000_debits": 150.1
+  },
+  "15": {
+   "debits": 13101,
+   "within_reach": 12195,
+   "right": 10330,
+   "wrong": 2036,
+   "none": 735,
+   "right_within_reach": 10330,
+   "wrong_within_reach": 1865,
+   "none_within_reach": 0,
+   "wrong_per_1000_within_reach": 152.9,
+   "wrong_per_1000_debits": 155.4
+  },
+  "20": {
+   "debits": 13101,
+   "within_reach": 12546,
+   "right": 10536,
+   "wrong": 2121,
+   "none": 444,
+   "right_within_reach": 10536,
+   "wrong_within_reach": 2010,
+   "none_within_reach": 0,
+   "wrong_per_1000_within_reach": 160.2,
+   "wrong_per_1000_debits": 161.9
+  },
+  "30": {
+   "debits": 13101,
+   "within_reach": 12849,
+   "right": 10684,
+   "wrong": 2222,
+   "none": 195,
+   "right_within_reach": 10684,
+   "wrong_within_reach": 2165,
+   "none_within_reach": 0,
+   "wrong_per_1000_within_reach": 168.5,
+   "wrong_per_1000_debits": 169.6
+  },
+  "40": {
+   "debits": 13101,
+   "within_reach": 12961,
+   "right": 10724,
+   "wrong": 2280,
+   "none": 97,
+   "right_within_reach": 10724,
+   "wrong_within_reach": 2237,
+   "none_within_reach": 0,
+   "wrong_per_1000_within_reach": 172.6,
+   "wrong_per_1000_debits": 174.0
+  },
+  "60": {
+   "debits": 13101,
+   "within_reach": 13038,
+   "right": 10718,
+   "wrong": 2338,
+   "none": 45,
+   "right_within_reach": 10718,
+   "wrong_within_reach": 2320,
+   "none_within_reach": 0,
+   "wrong_per_1000_within_reach": 177.9,
+   "wrong_per_1000_debits": 178.5
+  }
+ },
+ "break_age_kaplan_meier": {
+  "county": {
+   "R1": {
+    "breaks": 46180,
+    "closed": 3817,
+    "still_open": 42363,
+    "median": null,
+    "p90": null,
+    "survival_at_last_event": 0.9164,
+    "event_times": 105
+   },
+   "R2": {
+    "breaks": 51082,
+    "closed": 116,
+    "still_open": 50966,
+    "median": null,
+    "p90": null,
+    "survival_at_last_event": 0.997,
+    "event_times": 21
+   },
+   "R3": {
+    "breaks": 3953,
+    "closed": 3724,
+    "still_open": 229,
+    "median": 4,
+    "p90": 34,
+    "survival_at_last_event": 0.0553,
+    "event_times": 105
+   }
+  },
+  "processor": {
+   "R1": {
+    "breaks": 18666,
+    "closed": 86,
+    "still_open": 18580,
+    "median": null,
+    "p90": null,
+    "survival_at_last_event": 0.9945,
+    "event_times": 31
+   },
+   "R2": {
+    "breaks": 18666,
+    "closed": 86,
+    "still_open": 18580,
+    "median": null,
+    "p90": null,
+    "survival_at_last_event": 0.9945,
+    "event_times": 31
+   },
+   "R3": {
+    "breaks": 86,
+    "closed": 86,
+    "still_open": 0,
+    "median": 20,
+    "p90": 31,
+    "survival_at_last_event": 0.0,
+    "event_times": 31
+   }
+  }
+ },
+ "open_once_per_payment_county": {
+  "R1": {
+   "mean_usd": 161049892.41,
+   "share_of_money_in_payments": 0.266,
+   "both_sides_mean_usd_version_1": 322953150.65,
+   "ratio_to_both_sides": 0.4987
+  },
+  "R2": {
+   "mean_usd": 195177513.99,
+   "share_of_money_in_payments": 0.3224,
+   "both_sides_mean_usd_version_1": 474025021.27,
+   "ratio_to_both_sides": 0.4117
+  },
+  "R3": {
+   "mean_usd": 4378524.91,
+   "share_of_money_in_payments": 0.0072,
+   "both_sides_mean_usd_version_1": 4378524.91,
+   "ratio_to_both_sides": 1.0
+  }
+ },
+ "predictions": {
+  "V1": true,
+  "V2": true,
+  "V3": true,
+  "V3_opposite": false,
+  "V4": false,
+  "V5": true,
+  "V6": true
+ }
+}

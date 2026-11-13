@@ -1,0 +1,22 @@
+{
+ "study": "three-way-reconciliation",
+ "version": 2,
+ "added_after_the_results": true,
+ "declared_before_any_run_of_this_version": true,
+ "first_version_unchanged": "results/results-r1.json and results/results-heldout.json stay as scored",
+ "windows_business_days": [3, 5, 10, 15, 20, 30, 40, 60],
+ "measures": {
+  "a": "the amount-and-date fallback rule (R2) as frozen, run at every window: wrong pairings per 1,000 bank lines, split by whether the bank line's own payment cleared within the window",
+  "b": "hidden-reference test: each county bank debit's check number treated as unreadable in turn; the fallback takes the oldest open payment within US$1.00 issued 0 to W business days before; right, wrong or nothing",
+  "c": "Kaplan-Meier break age from the frozen 5-day runs, still-open breaks censored",
+  "d": "county money open at each 2024 close counted once per payment"
+ },
+ "predictions": [
+  {"id": "V1", "measure": "a", "claim": "wrong pairings stay at or above 1 per 1,000 bank lines at every window from 3 to 60", "opposite": "under 1 per 1,000 at some window"},
+  {"id": "V2", "measure": "a", "claim": "fewer wrong pairings at 15 business days than at 5", "opposite": "as many or more"},
+  {"id": "V3", "measure": "b", "claim": "at 5 business days, among debits whose true payment is within reach, a wrong payment is taken at least 10 times per 1,000", "opposite": "under 1 per 1,000"},
+  {"id": "V4", "measure": "b", "claim": "more wrong payments per 1,000 debits within reach at 15 business days than at 5", "opposite": "as many or fewer"},
+  {"id": "V5", "measure": "c", "claim": "county Kaplan-Meier median break age not reached under R1 and R2, and between 4 and 6 business days under R3", "opposite": "any of the three outside"},
+  {"id": "V6", "measure": "d", "claim": "once per payment, R1's mean open money is 40% to 60% of its both-sides figure and R3's is 90% to 100% of its own", "opposite": "either outside"}
+ ]
+}

@@ -1,0 +1,787 @@
+[
+ {
+  "id": "C01",
+  "dataset": "county",
+  "title": "Bank debits the same check twice",
+  "correct": "flag",
+  "why": "A second debit for the same check takes money twice for one payment.",
+  "ops": [
+   {
+    "op": "pick",
+    "as": "debit",
+    "feed": "bank_lines",
+    "where": {
+     "amount": {
+      "min": 100,
+      "max": 10000
+     }
+    },
+    "nth": 4
+   },
+   {
+    "op": "copy",
+    "of": "debit",
+    "as": "second_debit",
+    "set": {},
+    "shift_days": 1
+   }
+  ]
+ },
+ {
+  "id": "C02",
+  "dataset": "county",
+  "title": "Paid debit missing from the bank feed",
+  "correct": "flag",
+  "why": "The bank feed permanently omits a payment that cleared, leaving its cash movement unsupported.",
+  "ops": [
+   {
+    "op": "pick",
+    "as": "debit",
+    "feed": "bank_lines",
+    "where": {
+     "date": {
+      "min": "2024-04-01",
+      "max": "2024-10-31"
+     }
+    },
+    "nth": 8
+   },
+   {
+    "op": "remove",
+    "on": "debit"
+   }
+  ]
+ },
+ {
+  "id": "C03",
+  "dataset": "county",
+  "title": "Bank debit contains a major amount error",
+  "correct": "flag",
+  "why": "The bank debit exceeds the original payment amount and needs investigation.",
+  "ops": [
+   {
+    "op": "pick",
+    "as": "debit",
+    "feed": "bank_lines",
+    "where": {
+     "amount": {
+      "min": 100,
+      "max": 1000
+     }
+    },
+    "nth": 2
+   },
+   {
+    "op": "set",
+    "on": "debit",
+    "set": {
+     "amount": 95000.0
+    }
+   }
+  ]
+ },
+ {
+  "id": "C04",
+  "dataset": "county",
+  "title": "Invoice line imported twice",
+  "correct": "flag",
+  "why": "The books count the same invoice twice under one payment without any additional money being paid.",
+  "ops": [
+   {
+    "op": "pick",
+    "as": "invoice",
+    "feed": "ledger_lines",
+    "where": {
+     "amount": {
+      "min": 100,
+      "max": 10000
+     }
+    },
+    "nth": 5
+   },
+   {
+    "op": "copy",
+    "of": "invoice",
+    "as": "duplicate_invoice",
+    "set": {}
+   }
+  ]
+ },
+ {
+  "id": "C05",
+  "dataset": "county",
+  "title": "Invoice line lost from the books",
+  "correct": "flag",
+  "why": "Removing an invoice leaves the payment total without its full accounting support.",
+  "ops": [
+   {
+    "op": "pick",
+    "as": "invoice",
+    "feed": "ledger_lines",
+    "where": {
+     "amount": {
+      "min": 1000,
+      "max": 25000
+     }
+    },
+    "nth": 6
+   },
+   {
+    "op": "remove",
+    "on": "invoice"
+   }
+  ]
+ },
+ {
+  "id": "C06",
+  "dataset": "county",
+  "title": "Electronic payment total corrupted",
+  "correct": "flag",
+  "why": "The payment run reports a total inconsistent with the unchanged invoices and bank debit.",
+  "ops": [
+   {
+    "op": "pick",
+    "as": "payment",
+    "feed": "payments",
+    "where": {
+     "payment_type": "Electronic",
+     "status": "Paid",
+     "total": {
+      "min": 100,
+      "max": 10000
+     }
+    },
+    "nth": 3
+   },
+   {
+    "op": "set",
+    "on": "payment",
+    "set": {
+     "total": 75000.0
+    }
+   }
+  ]
+ },
+ {
+  "id": "C07",
+  "dataset": "county",
+  "title": "Bank check reference damaged",
+  "correct": "flag",
+  "why": "The debit carries an unusable check reference that someone must trace and correct.",
+  "ops": [
+   {
+    "op": "pick",
+    "as": "debit",
+    "feed": "bank_lines",
+    "where": {
+     "amount": {
+      "min": 500,
+      "max": 20000
+     }
+    },
+    "nth": 7
+   },
+   {
+    "op": "set",
+    "on": "debit",
+    "set": {
+     "reference": "UNREADABLE-CHECK"
+    }
+   }
+  ]
+ },
+ {
+  "id": "C08",
+  "dataset": "county",
+  "title": "Supplier holds a paper check longer",
+  "correct": "explain",
+  "why": "A paper check clearing several weeks later is ordinary presentation timing and eventually closes.",
+  "ops": [
+   {
+    "op": "pick",
+    "as": "debit",
+    "feed": "bank_lines",
+    "where": {
+     "reference": {
+      "min": 560000,
+      "max": 580000
+     },
+     "date": {
+      "min": "2024-04-01",
+      "max": "2024-10-31"
+     }
+    },
+    "nth": 4
+   },
+   {
+    "op": "shift",
+    "on": "debit",
+    "days": 20
+   }
+  ]
+ },
+ {
+  "id": "C09",
+  "dataset": "county",
+  "title": "Electronic payment clears one day later",
+  "correct": "explain",
+  "why": "One extra business day remains within the stated one-to-three-day electronic clearing window.",
+  "ops": [
+   {
+    "op": "pick",
+    "as": "debit",
+    "feed": "bank_lines",
+    "where": {
+     "reference": {
+      "min": 202400000000000,
+      "max": 202499999999999
+     }
+    },
+    "nth": 2
+   },
+   {
+    "op": "shift",
+    "on": "debit",
+    "days": 1
+   }
+  ]
+ },
+ {
+  "id": "C10",
+  "dataset": "county",
+  "title": "Invoice posting arrives the following business day",
+  "correct": "explain",
+  "why": "The accounting line posts one business day later with its payment link and amount intact.",
+  "ops": [
+   {
+    "op": "pick",
+    "as": "invoice",
+    "feed": "ledger_lines",
+    "where": {
+     "amount": {
+      "min": 100,
+      "max": 10000
+     }
+    },
+    "nth": 9
+   },
+   {
+    "op": "shift",
+    "on": "invoice",
+    "days": 1
+   }
+  ]
+ },
+ {
+  "id": "C11",
+  "dataset": "county",
+  "title": "Supplier credit netted into one check",
+  "correct": "explain",
+  "why": "The $1,250 invoice and $150 credit correctly produce one $1,100 payment and bank debit.",
+  "ops": [
+   {
+    "op": "add",
+    "feed": "ledger_lines",
+    "as": "invoice",
+    "fields": {
+     "line_id": "C11-L1",
+     "payment_doc": "C11-PAY",
+     "vendor": "C11-VENDOR",
+     "invoice": "INV-1250",
+     "amount": 1250.0,
+     "date": "2024-06-14"
+    }
+   },
+   {
+    "op": "add",
+    "feed": "ledger_lines",
+    "as": "credit",
+    "fields": {
+     "line_id": "C11-L2",
+     "payment_doc": "C11-PAY",
+     "vendor": "C11-VENDOR",
+     "invoice": "CREDIT-150",
+     "amount": -150.0,
+     "date": "2024-06-14"
+    }
+   },
+   {
+    "op": "add",
+    "feed": "payments",
+    "as": "payment",
+    "fields": {
+     "payment_doc": "C11-PAY",
+     "check_number": "990011",
+     "payment_type": "Paper",
+     "total": 1100.0,
+     "issue_date": "2024-06-14",
+     "status": "Paid"
+    }
+   },
+   {
+    "op": "add",
+    "feed": "bank_lines",
+    "as": "debit",
+    "fields": {
+     "bank_line_id": "C11-BANK",
+     "reference": "990011",
+     "amount": 1100.0,
+     "date": "2024-06-18"
+    }
+   }
+  ]
+ },
+ {
+  "id": "C12",
+  "dataset": "county",
+  "title": "Unpresented check formally voided",
+  "correct": "explain",
+  "why": "The explicit void closes the issued check without a bank debit because it was never presented.",
+  "ops": [
+   {
+    "op": "add",
+    "feed": "ledger_lines",
+    "as": "invoice",
+    "fields": {
+     "line_id": "C12-L1",
+     "payment_doc": "C12-PAY",
+     "vendor": "C12-VENDOR",
+     "invoice": "INV-845",
+     "amount": 845.0,
+     "date": "2024-06-14"
+    }
+   },
+   {
+    "op": "add",
+    "feed": "payments",
+    "as": "payment",
+    "fields": {
+     "payment_doc": "C12-PAY",
+     "check_number": "990012",
+     "payment_type": "Paper",
+     "total": 845.0,
+     "issue_date": "2024-06-14",
+     "status": "Cancelled"
+    }
+   },
+   {
+    "op": "add",
+    "feed": "voids",
+    "as": "void",
+    "fields": {
+     "payment_doc": "C12-PAY",
+     "date": "2024-06-20"
+    }
+   }
+  ]
+ },
+ {
+  "id": "P01",
+  "dataset": "processor",
+  "title": "Processor omits a booked charge",
+  "correct": "flag",
+  "why": "The booked sale never settles, and the processor pays out less even though its report and bank agree.",
+  "ops": [
+   {
+    "op": "pick",
+    "as": "charge",
+    "feed": "settlement_rows",
+    "where": {
+     "kind": "charge",
+     "currency": "USD",
+     "amount": {
+      "min": 9,
+      "max": 100
+     }
+    },
+    "nth": 3
+   },
+   {
+    "op": "remove",
+    "on": "charge"
+   },
+   {
+    "op": "repay"
+   }
+  ]
+ },
+ {
+  "id": "P02",
+  "dataset": "processor",
+  "title": "Processor settles a Canadian charge twice",
+  "correct": "flag",
+  "why": "The processor pays the same customer charge twice while the books contain only the original sale.",
+  "ops": [
+   {
+    "op": "pick",
+    "as": "charge",
+    "feed": "settlement_rows",
+    "where": {
+     "kind": "charge",
+     "currency": "CAD",
+     "amount": {
+      "min": 9,
+      "max": 99
+     }
+    },
+    "nth": 2
+   },
+   {
+    "op": "copy",
+    "of": "charge",
+    "as": "duplicate_charge",
+    "set": {}
+   },
+   {
+    "op": "repay"
+   }
+  ]
+ },
+ {
+  "id": "P03",
+  "dataset": "processor",
+  "title": "Processor settles the wrong sale amount",
+  "correct": "flag",
+  "why": "The inflated settlement changes the cash received without changing the customer's booked charge.",
+  "ops": [
+   {
+    "op": "pick",
+    "as": "charge",
+    "feed": "settlement_rows",
+    "where": {
+     "kind": "charge",
+     "currency": "USD",
+     "amount": {
+      "min": 9,
+      "max": 99
+     }
+    },
+    "nth": 7
+   },
+   {
+    "op": "set",
+    "on": "charge",
+    "set": {
+     "amount": 999.99
+    }
+   },
+   {
+    "op": "repay"
+   }
+  ]
+ },
+ {
+  "id": "P04",
+  "dataset": "processor",
+  "title": "Refund omitted from the company books",
+  "correct": "flag",
+  "why": "The processor deducts a customer refund that no longer has a corresponding accounting entry.",
+  "ops": [
+   {
+    "op": "pick",
+    "as": "refund",
+    "feed": "ledger_items",
+    "where": {
+     "kind": "refund",
+     "currency": "USD",
+     "amount": {
+      "min": 9,
+      "max": 99
+     }
+    },
+    "nth": 4
+   },
+   {
+    "op": "remove",
+    "on": "refund"
+   }
+  ]
+ },
+ {
+  "id": "P05",
+  "dataset": "processor",
+  "title": "Bank credits only part of a payout",
+  "correct": "flag",
+  "why": "A $1 credit cannot discharge the processor's unchanged payout of thousands of dollars.",
+  "ops": [
+   {
+    "op": "pick",
+    "as": "credit",
+    "feed": "bank_lines",
+    "where": {
+     "amount": {
+      "min": 9000,
+      "max": 25000
+     }
+    },
+    "nth": 5
+   },
+   {
+    "op": "set",
+    "on": "credit",
+    "set": {
+     "amount": 1.0
+    }
+   }
+  ]
+ },
+ {
+  "id": "P06",
+  "dataset": "processor",
+  "title": "Bank remittance names a nonexistent batch",
+  "correct": "flag",
+  "why": "The credit points to a batch outside this data set and needs its remittance reference corrected.",
+  "ops": [
+   {
+    "op": "pick",
+    "as": "credit",
+    "feed": "bank_lines",
+    "where": {
+     "date": {
+      "min": "2025-01-01",
+      "max": "2025-06-30"
+     }
+    },
+    "nth": 8
+   },
+   {
+    "op": "set",
+    "on": "credit",
+    "set": {
+     "remittance": "batch 999999"
+    }
+   }
+  ]
+ },
+ {
+  "id": "P07",
+  "dataset": "processor",
+  "title": "Processing fee charged twice",
+  "correct": "flag",
+  "why": "A duplicate fee on one charge reduces the payout beyond the single fee described for each charge.",
+  "ops": [
+   {
+    "op": "pick",
+    "as": "fee",
+    "feed": "settlement_rows",
+    "where": {
+     "kind": "fee",
+     "currency": "USD",
+     "amount": {
+      "min": 0.3,
+      "max": 15
+     }
+    },
+    "nth": 6
+   },
+   {
+    "op": "copy",
+    "of": "fee",
+    "as": "duplicate_fee",
+    "set": {}
+   },
+   {
+    "op": "repay"
+   }
+  ]
+ },
+ {
+  "id": "P08",
+  "dataset": "processor",
+  "title": "Refund posted to the books one day late",
+  "correct": "explain",
+  "why": "A one-business-day accounting delay resolves with the same customer refund and amount.",
+  "ops": [
+   {
+    "op": "pick",
+    "as": "refund",
+    "feed": "ledger_items",
+    "where": {
+     "kind": "refund",
+     "currency": "USD",
+     "amount": {
+      "min": 9,
+      "max": 99
+     }
+    },
+    "nth": 2
+   },
+   {
+    "op": "shift",
+    "on": "refund",
+    "days": 1
+   }
+  ]
+ },
+ {
+  "id": "P09",
+  "dataset": "processor",
+  "title": "Payout reaches the bank a day late",
+  "correct": "explain",
+  "why": "The full payout arrives one extra business day later with its batch reference intact.",
+  "ops": [
+   {
+    "op": "pick",
+    "as": "credit",
+    "feed": "bank_lines",
+    "where": {
+     "date": {
+      "min": "2025-01-01",
+      "max": "2025-05-31"
+     }
+    },
+    "nth": 9
+   },
+   {
+    "op": "shift",
+    "on": "credit",
+    "days": 1
+   }
+  ]
+ },
+ {
+  "id": "P10",
+  "dataset": "processor",
+  "title": "Charge misses the settlement cutoff",
+  "correct": "explain",
+  "why": "The charge moves into the following business day's batch and is paid there in full.",
+  "ops": [
+   {
+    "op": "pick",
+    "as": "charge",
+    "feed": "settlement_rows",
+    "where": {
+     "kind": "charge",
+     "currency": "USD",
+     "date": {
+      "min": "2025-01-01",
+      "max": "2025-05-31"
+     }
+    },
+    "nth": 11
+   },
+   {
+    "op": "shift",
+    "on": "charge",
+    "days": 1
+   },
+   {
+    "op": "repay"
+   }
+  ]
+ },
+ {
+  "id": "P11",
+  "dataset": "processor",
+  "title": "Processing fee deducted in the next batch",
+  "correct": "explain",
+  "why": "The same single fee is collected one business day later, changing payout timing without adding a charge.",
+  "ops": [
+   {
+    "op": "pick",
+    "as": "fee",
+    "feed": "settlement_rows",
+    "where": {
+     "kind": "fee",
+     "date": {
+      "min": "2025-01-01",
+      "max": "2025-05-31"
+     },
+     "amount": {
+      "min": 0.3,
+      "max": 15
+     }
+    },
+    "nth": 12
+   },
+   {
+    "op": "shift",
+    "on": "fee",
+    "days": 1
+   },
+   {
+    "op": "repay"
+   }
+  ]
+ },
+ {
+  "id": "P12",
+  "dataset": "processor",
+  "title": "Customer receives a partial refund after settlement",
+  "correct": "explain",
+  "why": "The $100 sale, $3.20 processing fee and subsequent $25 partial refund are fully supported across the feeds.",
+  "ops": [
+   {
+    "op": "add",
+    "feed": "ledger_items",
+    "as": "booked_charge",
+    "fields": {
+     "item_id": "P12-LCH",
+     "charge_id": "P12-ORDER",
+     "kind": "charge",
+     "currency": "USD",
+     "amount": 100.0,
+     "date": "2025-01-15"
+    }
+   },
+   {
+    "op": "add",
+    "feed": "settlement_rows",
+    "as": "settled_charge",
+    "fields": {
+     "row_id": "P12-SCH",
+     "charge_id": "P12-ORDER",
+     "kind": "charge",
+     "currency": "USD",
+     "amount": 100.0,
+     "batch": 11,
+     "date": "2025-01-16"
+    }
+   },
+   {
+    "op": "add",
+    "feed": "settlement_rows",
+    "as": "fee",
+    "fields": {
+     "row_id": "P12-SFE",
+     "charge_id": "P12-ORDER",
+     "kind": "fee",
+     "currency": "USD",
+     "amount": 3.2,
+     "batch": 11,
+     "date": "2025-01-16"
+    }
+   },
+   {
+    "op": "add",
+    "feed": "ledger_items",
+    "as": "booked_refund",
+    "fields": {
+     "item_id": "P12-LRE",
+     "charge_id": "P12-ORDER",
+     "kind": "refund",
+     "currency": "USD",
+     "amount": 25.0,
+     "date": "2025-01-16"
+    }
+   },
+   {
+    "op": "add",
+    "feed": "settlement_rows",
+    "as": "settled_refund",
+    "fields": {
+     "row_id": "P12-SRE",
+     "charge_id": "P12-ORDER",
+     "kind": "refund",
+     "currency": "USD",
+     "amount": 25.0,
+     "batch": 12,
+     "date": "2025-01-17"
+    }
+   },
+   {
+    "op": "repay"
+   }
+  ]
+ }
+]

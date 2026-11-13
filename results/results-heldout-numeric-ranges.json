@@ -1,0 +1,40 @@
+{
+ "added_after_the_results": true,
+ "what": "Added after the results: the two held-out county events whose pick put a numeric range on the check-number text",
+ "events": [
+  {
+   "id": "C08",
+   "title": "Supplier holds a paper check longer",
+   "correct": "explain",
+   "R1": {
+    "flagged": true,
+    "right": false
+   },
+   "R2": {
+    "flagged": true,
+    "right": false
+   },
+   "R3": {
+    "flagged": true,
+    "right": false
+   }
+  },
+  {
+   "id": "C09",
+   "title": "Electronic payment clears one day later",
+   "correct": "explain",
+   "R1": {
+    "flagged": true,
+    "right": false
+   },
+   "R2": {
+    "flagged": true,
+    "right": false
+   },
+   "R3": {
+    "flagged": false,
+    "right": true
+   }
+  }
+ ]
+}

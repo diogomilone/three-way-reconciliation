@@ -1,0 +1,50 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light dark"><meta name="robots" content="noindex"><meta name="description" content="The checks behind the three-way reconciliation study: totals, month-end tie, truth table, anomalies and tests."><title>Checks: Three-way reconciliation: matching the books, the payments and the bank each day</title><link rel="icon" href="data:,"><link rel="preload" href="vendor/viz-design-system/assets/fonts/newsreader-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="vendor/viz-design-system/assets/fonts/public-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="vendor/viz-design-system/assets/fonts/public-sans-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="vendor/viz-design-system/tokens.css"><link rel="stylesheet" href="vendor/viz-design-system/kit/kit.css"><link rel="stylesheet" href="vendor/viz-design-system/kit/takeaway.css"><link rel="stylesheet" href="vendor/viz-design-system/kit/wayfinding.css"><style>.table-scroll{position:relative;overflow-x:auto}
+main h2{font-size:var(--viz-type-section);font-weight:500;line-height:1.15;letter-spacing:-.01em;margin:0 0 .75rem}
+main h3{font-size:1.15rem;font-weight:600;margin:1.75rem 0 .4rem}
+p,ul.notes,ol.notes{max-width:72ch}
+.block{margin-top:2.75rem}
+ul.notes,ol.notes{padding-left:1.2rem}
+ul.notes li,ol.notes li{margin:.55rem 0}
+table.data{width:auto;min-width:min(100%,32rem)}
+table.data th,table.data td{vertical-align:baseline}
+table.data th[scope=row]{font-weight:400}
+table.data thead th.num{font-family:var(--viz-font-body);font-weight:600}
+table.data td.num,table.data th.num{padding-left:1.25rem}
+table.data td.num{white-space:nowrap}
+dl.glossary{display:grid;grid-template-columns:max-content 1fr;gap:.35rem 1rem;max-width:72ch;margin:1rem 0 0}
+dl.glossary dt{font-weight:600}
+dl.glossary dd{margin:0}
+.links{display:flex;flex-wrap:wrap;gap:.25rem 1.25rem}
+.links a{min-height:44px;display:inline-flex;align-items:center}
+.links a[aria-current=page]{font-weight:600;text-decoration:none}
+.study-pages{margin-top:3rem;border-top:1px solid var(--viz-rule);padding-top:.75rem}
+#takeaway{max-width:860px;margin-top:1.25rem}
+#takeaway svg{display:block;width:100%;max-width:520px;height:auto}
+#takeaway svg .lab,#takeaway svg .val{font-size:15px}
+svg .hit{fill:transparent}
+.tk-bars .tk-mark{fill:var(--viz-muted)}
+.tk-bars .tk-mark.tk-key{fill:var(--viz-highlight)}
+.tk-bars .lab.key{font-weight:600}
+svg .lab{font:13px var(--viz-font-body);fill:var(--viz-foreground)}
+svg .val{font:13px var(--viz-font-figures);fill:var(--viz-foreground)}
+svg .muted,svg tspan.muted{fill:var(--viz-muted)}
+svg .tick{font:11px var(--viz-font-figures);fill:var(--viz-muted)}
+svg .grid{stroke:var(--viz-grid);stroke-width:1}
+#sweep-fig{max-width:860px;margin:1.25rem 0 0}
+svg.sweep{display:block;width:100%;max-width:560px;height:auto}
+svg.sweep .ser{fill:none;stroke:var(--viz-foreground);stroke-width:2}
+svg.sweep .mk{fill:var(--viz-surface);stroke:var(--viz-foreground);stroke-width:2.5}
+svg.sweep .is-key .mk{fill:var(--viz-highlight);stroke:var(--viz-highlight)}
+svg .pt{cursor:pointer}
+svg .pt:focus{outline:none}
+svg .pt:focus .mk,svg .pt:hover .mk{stroke-width:3.5}
+svg .pt:hover .tk-mark,svg .pt:focus .tk-mark{stroke:var(--viz-foreground);stroke-width:1.5}
+@media(max-width:759px){dl.glossary{grid-template-columns:1fr}
+dl.glossary dd{margin-bottom:.5rem}}
+pre.prompt{max-width:80ch;margin:0;padding:.75rem;border:1px solid var(--viz-rule);border-radius:4px;background:var(--viz-background);font:13px/1.5 var(--viz-font-figures);white-space:pre-wrap;overflow-wrap:anywhere}
+#hero-title{font-size:clamp(1.5rem,1.1rem + 1.5vw,2.3rem);line-height:1.18;max-width:34ch}
+.hero-call{font-size:1.15rem;font-weight:600;margin:.6rem 0 0;max-width:60ch}
+.hero .limitation{max-width:72ch;margin:.9rem 0 0;font-size:var(--viz-type-small)}
+.hero-lead{max-width:60ch;margin:.6rem 0 0}
+#takeaway .limitation{max-width:72ch;margin:.75rem 0 0;font-size:var(--viz-type-small)}
+</style><script src="vendor/viz-design-system/kit/kit.js"></script><script src="vendor/viz-design-system/kit/takeaway.js"></script><script src="vendor/viz-design-system/kit/wayfinding.js" defer></script></head><body><a class="kit-skip" href="#main">Skip to content</a><header class="site"><div class="kit-wrap site-row"><p class="site-id"><a class="site-name" href="../">Diogo Travassos</a><span class="site-role">Data leadership · Analytics · Decision-making</span></p><nav aria-label="Site"><a href="../#studies">Studies</a><a href="https://www.linkedin.com/in/diogo-travassos/">LinkedIn</a><a href="mailto:hello@diogotravassos.dev">Email</a><button class="theme-toggle" type="button" data-theme-toggle>Theme: auto</button></nav></div></header><main id="main"><section class="hero kit-wrap" aria-labelledby="hero-title"><p class="hero-tags"><span class="tag tag-data">Public data</span></p><p class="hero-piece"><a href="index.html">Three-way reconciliation: matching the books, the payments and the bank each day</a>: Checks</p><h1 id="hero-title">The 13,354 payments built from the extract held every cent of its US$605.4 million, on one county&#x27;s public records.</h1><p class="hero-lead">The checks that the records were read and rebuilt without losing a cent.</p></section><section id="sources" class="block kit-wrap" aria-labelledby="sources-title"><h2 id="sources-title">The source adds up</h2><ul class="notes"><li>Paid US$598,354,126.44, cancelled US$1,184,977.71 and issued but never presented US$5,861,259.68 add to US$605,400,363.83, the sum of the extract's rows and the money in the 13,354 payments.</li><li>The extract has 46,126 rows, the count the county's portal itself reports for fiscal year 2024. They are pinned by a checksum, checked every time the feeds are built.</li><li>45,417 invoice lines remain after the 709 lines of zero-net documents are left out, and every one belongs to exactly one payment.</li></ul></section><section id="tie" class="block kit-wrap" aria-labelledby="tie-title"><h2 id="tie-title">The close ties at every month end</h2><p>At each of the 12 month ends of 2024, payments issued less voids less bank debits equalled the money in payments not yet cleared, payment by payment. The gap was 0 cents every time. On real bank data this is the check that fails first; here it passes by construction, so it shows the arithmetic, not the data.</p></section><section id="truth" class="block kit-wrap" aria-labelledby="truth-title"><h2 id="truth-title">Wrong pairings are counted against the truth</h2><p>The feed builders keep which records truly belong together, and the planting code adds each planted record's truth. A pairing is wrong when its two records do not belong together. A planted spurious record belongs to nothing.</p></section><section id="anomalies" class="block kit-wrap" aria-labelledby="anomalies-title"><h2 id="anomalies-title">What the real data held</h2><ul class="notes"><li>229 payments issued and never presented to the bank, worth US$5,861,259.68. They stay open to the last close under every rule.</li><li>171 payments whose lines carry more than one payment date.</li><li>173 documents whose lines net to zero, left out as above.</li></ul></section><section id="tests" class="block kit-wrap" aria-labelledby="tests-title"><h2 id="tests-title">Tests</h2><p>The tests pin the data checksum and the feed counts. They run each rule on small fixed test cases: a split payment, a shared amount, a void and a late check. They also check that every event kind plants 20 instances, that the independent event grammar applies and that the first version's results file is unchanged. One more checks that a lone fit never matches a debit in reach to the wrong payment.</p></section><section id="limits" class="block kit-wrap" aria-labelledby="limits-title"><h2 id="limits-title">Limits</h2><p>The month-end tie is a bookkeeping identity here, because the bank lines are built from the county&#x27;s own table.</p></section><nav class="study-pages kit-wrap" aria-label="Study pages"><p class="links"><a href="index.html">Overview</a><a href="method.html">Method</a><a href="checks.html" aria-current="page">Checks</a><a href="results.html">Full results</a><a href="what-went-wrong.html">What went wrong</a><a href="follow-up.html">Follow-up</a><a href="glossary.html">Glossary</a></p></nav></main><footer class="site"><div class="kit-wrap"><p><span>Public data, with a synthetic card processor</span><a href="../#studies">Back to all studies</a></p></div></footer></body></html>

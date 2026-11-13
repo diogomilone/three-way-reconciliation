@@ -1,0 +1,821 @@
+{
+ "window_business_days": 5,
+ "summary": {
+  "county": {
+   "events": 12,
+   "applied": 10,
+   "not_applied": [
+    "C08",
+    "C09"
+   ],
+   "flag_events": 7,
+   "explain_events": 3,
+   "R1": {
+    "right": 9,
+    "right_on_flag": 7,
+    "right_on_explain": 2,
+    "missed_through_false_match": 0
+   },
+   "R2": {
+    "right": 9,
+    "right_on_flag": 7,
+    "right_on_explain": 2,
+    "missed_through_false_match": 0
+   },
+   "R3": {
+    "right": 10,
+    "right_on_flag": 7,
+    "right_on_explain": 3,
+    "missed_through_false_match": 0
+   }
+  },
+  "processor": {
+   "events": 12,
+   "applied": 12,
+   "not_applied": [],
+   "flag_events": 7,
+   "explain_events": 5,
+   "R1": {
+    "right": 10,
+    "right_on_flag": 7,
+    "right_on_explain": 3,
+    "missed_through_false_match": 0
+   },
+   "R2": {
+    "right": 9,
+    "right_on_flag": 6,
+    "right_on_explain": 3,
+    "missed_through_false_match": 0
+   },
+   "R3": {
+    "right": 11,
+    "right_on_flag": 6,
+    "right_on_explain": 5,
+    "missed_through_false_match": 0
+   }
+  }
+ },
+ "events": [
+  {
+   "id": "C01",
+   "dataset": "county",
+   "title": "Bank debits the same check twice",
+   "correct": "flag",
+   "why": "A second debit for the same check takes money twice for one payment.",
+   "applied": true,
+   "touched": [
+    "BAD010424000000000007+C011"
+   ],
+   "R1": {
+    "flagged": true,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": 7
+   },
+   "R2": {
+    "flagged": true,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": 7
+   },
+   "R3": {
+    "flagged": true,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": 7
+   }
+  },
+  {
+   "id": "C02",
+   "dataset": "county",
+   "title": "Paid debit missing from the bank feed",
+   "correct": "flag",
+   "why": "The bank feed permanently omits a payment that cleared, leaving its cash movement unsupported.",
+   "applied": true,
+   "touched": [
+    "PAD022224000000000737"
+   ],
+   "R1": {
+    "flagged": true,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": 0
+   },
+   "R2": {
+    "flagged": true,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": 0
+   },
+   "R3": {
+    "flagged": true,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": 0
+   }
+  },
+  {
+   "id": "C03",
+   "dataset": "county",
+   "title": "Bank debit contains a major amount error",
+   "correct": "flag",
+   "why": "The bank debit exceeds the original payment amount and needs investigation.",
+   "applied": true,
+   "touched": [
+    "BAD010424000000000009",
+    "PAD010424000000000009"
+   ],
+   "R1": {
+    "flagged": true,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": 3
+   },
+   "R2": {
+    "flagged": true,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": 3
+   },
+   "R3": {
+    "flagged": true,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": 3
+   }
+  },
+  {
+   "id": "C04",
+   "dataset": "county",
+   "title": "Invoice line imported twice",
+   "correct": "flag",
+   "why": "The books count the same invoice twice under one payment without any additional money being paid.",
+   "applied": true,
+   "touched": [
+    "L00012+C041"
+   ],
+   "R1": {
+    "flagged": true,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": 6
+   },
+   "R2": {
+    "flagged": true,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": 6
+   },
+   "R3": {
+    "flagged": true,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": 6
+   }
+  },
+  {
+   "id": "C05",
+   "dataset": "county",
+   "title": "Invoice line lost from the books",
+   "correct": "flag",
+   "why": "Removing an invoice leaves the payment total without its full accounting support.",
+   "applied": true,
+   "touched": [
+    "PAD010424000000000004"
+   ],
+   "R1": {
+    "flagged": true,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": 6
+   },
+   "R2": {
+    "flagged": true,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": 6
+   },
+   "R3": {
+    "flagged": true,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": 6
+   }
+  },
+  {
+   "id": "C06",
+   "dataset": "county",
+   "title": "Electronic payment total corrupted",
+   "correct": "flag",
+   "why": "The payment run reports a total inconsistent with the unchanged invoices and bank debit.",
+   "applied": true,
+   "touched": [
+    "BEFT01042400000000008",
+    "L35451",
+    "PEFT01042400000000008"
+   ],
+   "R1": {
+    "flagged": true,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": 6
+   },
+   "R2": {
+    "flagged": true,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": 6
+   },
+   "R3": {
+    "flagged": true,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": 6
+   }
+  },
+  {
+   "id": "C07",
+   "dataset": "county",
+   "title": "Bank check reference damaged",
+   "correct": "flag",
+   "why": "The debit carries an unusable check reference that someone must trace and correct.",
+   "applied": true,
+   "touched": [
+    "BAD010424000000000012",
+    "PAD010424000000000012"
+   ],
+   "R1": {
+    "flagged": true,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": 0
+   },
+   "R2": {
+    "flagged": true,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": 0
+   },
+   "R3": {
+    "flagged": true,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": 0
+   }
+  },
+  {
+   "id": "C08",
+   "dataset": "county",
+   "title": "Supplier holds a paper check longer",
+   "correct": "explain",
+   "why": "A paper check clearing several weeks later is ordinary presentation timing and eventually closes.",
+   "applied": false,
+   "reason": "TypeError: '<' not supported between instances of 'str' and 'int'"
+  },
+  {
+   "id": "C09",
+   "dataset": "county",
+   "title": "Electronic payment clears one day later",
+   "correct": "explain",
+   "why": "One extra business day remains within the stated one-to-three-day electronic clearing window.",
+   "applied": false,
+   "reason": "TypeError: '<' not supported between instances of 'str' and 'int'"
+  },
+  {
+   "id": "C10",
+   "dataset": "county",
+   "title": "Invoice posting arrives the following business day",
+   "correct": "explain",
+   "why": "The accounting line posts one business day later with its payment link and amount intact.",
+   "applied": true,
+   "touched": [
+    "L00016",
+    "PAD010424000000000002"
+   ],
+   "R1": {
+    "flagged": false,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": null
+   },
+   "R2": {
+    "flagged": false,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": null
+   },
+   "R3": {
+    "flagged": false,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": null
+   }
+  },
+  {
+   "id": "C11",
+   "dataset": "county",
+   "title": "Supplier credit netted into one check",
+   "correct": "explain",
+   "why": "The $1,250 invoice and $150 credit correctly produce one $1,100 payment and bank debit.",
+   "applied": true,
+   "touched": [
+    "C11-BANK",
+    "C11-L1",
+    "C11-L2",
+    "NEW+C113"
+   ],
+   "R1": {
+    "flagged": true,
+    "right": false,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": 6
+   },
+   "R2": {
+    "flagged": true,
+    "right": false,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": 6
+   },
+   "R3": {
+    "flagged": false,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": null
+   }
+  },
+  {
+   "id": "C12",
+   "dataset": "county",
+   "title": "Unpresented check formally voided",
+   "correct": "explain",
+   "why": "The explicit void closes the issued check without a bank debit because it was never presented.",
+   "applied": true,
+   "touched": [
+    "C12-L1",
+    "NEW+C122"
+   ],
+   "R1": {
+    "flagged": false,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": null
+   },
+   "R2": {
+    "flagged": false,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": null
+   },
+   "R3": {
+    "flagged": false,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": null
+   }
+  },
+  {
+   "id": "P01",
+   "dataset": "processor",
+   "title": "Processor omits a booked charge",
+   "correct": "flag",
+   "why": "The booked sale never settles, and the processor pays out less even though its report and bank agree.",
+   "applied": true,
+   "touched": [
+    "G1",
+    "Lch000005",
+    "PO1"
+   ],
+   "R1": {
+    "flagged": true,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": 5
+   },
+   "R2": {
+    "flagged": true,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": 5
+   },
+   "R3": {
+    "flagged": true,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": 5
+   }
+  },
+  {
+   "id": "P02",
+   "dataset": "processor",
+   "title": "Processor settles a Canadian charge twice",
+   "correct": "flag",
+   "why": "The processor pays the same customer charge twice while the books contain only the original sale.",
+   "applied": true,
+   "touched": [
+    "G1",
+    "PO1",
+    "Sch000014+P021"
+   ],
+   "R1": {
+    "flagged": true,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": 6
+   },
+   "R2": {
+    "flagged": true,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": 6
+   },
+   "R3": {
+    "flagged": true,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": 6
+   }
+  },
+  {
+   "id": "P03",
+   "dataset": "processor",
+   "title": "Processor settles the wrong sale amount",
+   "correct": "flag",
+   "why": "The inflated settlement changes the cash received without changing the customer's booked charge.",
+   "applied": true,
+   "touched": [
+    "G1",
+    "Lch000011",
+    "PO1",
+    "Sch000011"
+   ],
+   "R1": {
+    "flagged": true,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": 5
+   },
+   "R2": {
+    "flagged": true,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": 5
+   },
+   "R3": {
+    "flagged": true,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": 5
+   }
+  },
+  {
+   "id": "P04",
+   "dataset": "processor",
+   "title": "Refund omitted from the company books",
+   "correct": "flag",
+   "why": "The processor deducts a customer refund that no longer has a corresponding accounting entry.",
+   "applied": true,
+   "touched": [
+    "Sre000641"
+   ],
+   "R1": {
+    "flagged": true,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": 7
+   },
+   "R2": {
+    "flagged": true,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": 7
+   },
+   "R3": {
+    "flagged": true,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": 7
+   }
+  },
+  {
+   "id": "P05",
+   "dataset": "processor",
+   "title": "Bank credits only part of a payout",
+   "correct": "flag",
+   "why": "A $1 credit cannot discharge the processor's unchanged payout of thousands of dollars.",
+   "applied": true,
+   "touched": [
+    "G103",
+    "K103",
+    "PO103"
+   ],
+   "R1": {
+    "flagged": true,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": 5
+   },
+   "R2": {
+    "flagged": true,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": 5
+   },
+   "R3": {
+    "flagged": true,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": 5
+   }
+  },
+  {
+   "id": "P06",
+   "dataset": "processor",
+   "title": "Bank remittance names a nonexistent batch",
+   "correct": "flag",
+   "why": "The credit points to a batch outside this data set and needs its remittance reference corrected.",
+   "applied": true,
+   "touched": [
+    "G999999",
+    "K106",
+    "PO106",
+    "PO999999"
+   ],
+   "R1": {
+    "flagged": true,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": 5
+   },
+   "R2": {
+    "flagged": false,
+    "right": false,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": null
+   },
+   "R3": {
+    "flagged": true,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": 6
+   }
+  },
+  {
+   "id": "P07",
+   "dataset": "processor",
+   "title": "Processing fee charged twice",
+   "correct": "flag",
+   "why": "A duplicate fee on one charge reduces the payout beyond the single fee described for each charge.",
+   "applied": true,
+   "touched": [
+    "G1",
+    "PO1",
+    "Sfe000006+P071"
+   ],
+   "R1": {
+    "flagged": true,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": 6
+   },
+   "R2": {
+    "flagged": true,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": 6
+   },
+   "R3": {
+    "flagged": false,
+    "right": false,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": null
+   }
+  },
+  {
+   "id": "P08",
+   "dataset": "processor",
+   "title": "Refund posted to the books one day late",
+   "correct": "explain",
+   "why": "A one-business-day accounting delay resolves with the same customer refund and amount.",
+   "applied": true,
+   "touched": [
+    "Lre000223",
+    "Sre000223"
+   ],
+   "R1": {
+    "flagged": false,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": null
+   },
+   "R2": {
+    "flagged": false,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": null
+   },
+   "R3": {
+    "flagged": false,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": null
+   }
+  },
+  {
+   "id": "P09",
+   "dataset": "processor",
+   "title": "Payout reaches the bank a day late",
+   "correct": "explain",
+   "why": "The full payout arrives one extra business day later with its batch reference intact.",
+   "applied": true,
+   "touched": [
+    "G107",
+    "K107",
+    "PO107"
+   ],
+   "R1": {
+    "flagged": false,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": null
+   },
+   "R2": {
+    "flagged": false,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": null
+   },
+   "R3": {
+    "flagged": false,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": null
+   }
+  },
+  {
+   "id": "P10",
+   "dataset": "processor",
+   "title": "Charge misses the settlement cutoff",
+   "correct": "explain",
+   "why": "The charge moves into the following business day's batch and is paid there in full.",
+   "applied": true,
+   "touched": [
+    "G2",
+    "Lch000015",
+    "PO2",
+    "Sch000015"
+   ],
+   "R1": {
+    "flagged": false,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": null
+   },
+   "R2": {
+    "flagged": false,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": null
+   },
+   "R3": {
+    "flagged": false,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": null
+   }
+  },
+  {
+   "id": "P11",
+   "dataset": "processor",
+   "title": "Processing fee deducted in the next batch",
+   "correct": "explain",
+   "why": "The same single fee is collected one business day later, changing payout timing without adding a charge.",
+   "applied": true,
+   "touched": [
+    "G2",
+    "PO2",
+    "Sfe000012"
+   ],
+   "R1": {
+    "flagged": true,
+    "right": false,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": 7
+   },
+   "R2": {
+    "flagged": true,
+    "right": false,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": 7
+   },
+   "R3": {
+    "flagged": false,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": null
+   }
+  },
+  {
+   "id": "P12",
+   "dataset": "processor",
+   "title": "Customer receives a partial refund after settlement",
+   "correct": "explain",
+   "why": "The $100 sale, $3.20 processing fee and subsequent $25 partial refund are fully supported across the feeds.",
+   "applied": true,
+   "touched": [
+    "G11",
+    "G12",
+    "P12-LCH",
+    "P12-LRE",
+    "P12-SCH",
+    "P12-SFE",
+    "P12-SRE",
+    "PO11",
+    "PO12"
+   ],
+   "R1": {
+    "flagged": true,
+    "right": false,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": 7
+   },
+   "R2": {
+    "flagged": true,
+    "right": false,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": 7
+   },
+   "R3": {
+    "flagged": false,
+    "right": true,
+    "new_false_matches": 0,
+    "false_match_on_touched": false,
+    "first_flag_after_business_days": null
+   }
+  }
+ ]
+}

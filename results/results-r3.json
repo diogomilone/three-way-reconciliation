@@ -1,0 +1,349 @@
+{
+ "version": 3,
+ "added_after_the_results": true,
+ "declared_in": "DESIGN-r3.md",
+ "one_fit_rule_county": {
+  "3": {
+   "debits": 13101,
+   "right_closes": 5160,
+   "wrong_closes": 395,
+   "look_alikes": 1462,
+   "none": 6084,
+   "wrong_closes_per_1000_debits": 30.2,
+   "right_closes_share_of_debits": 0.3939,
+   "look_alikes_share_of_debits": 0.1116,
+   "within_reach": 6429,
+   "right_closes_within_reach": 5160,
+   "wrong_closes_within_reach": 0,
+   "look_alikes_within_reach": 1269,
+   "look_alikes_share_within_reach": 0.1974
+  },
+  "5": {
+   "debits": 13101,
+   "right_closes": 6887,
+   "wrong_closes": 371,
+   "look_alikes": 1732,
+   "none": 4111,
+   "wrong_closes_per_1000_debits": 28.3,
+   "right_closes_share_of_debits": 0.5257,
+   "look_alikes_share_of_debits": 0.1322,
+   "within_reach": 8430,
+   "right_closes_within_reach": 6887,
+   "wrong_closes_within_reach": 0,
+   "look_alikes_within_reach": 1543,
+   "look_alikes_share_within_reach": 0.183
+  },
+  "10": {
+   "debits": 13101,
+   "right_closes": 9217,
+   "wrong_closes": 177,
+   "look_alikes": 2323,
+   "none": 1384,
+   "wrong_closes_per_1000_debits": 13.5,
+   "right_closes_share_of_debits": 0.7035,
+   "look_alikes_share_of_debits": 0.1773,
+   "within_reach": 11418,
+   "right_closes_within_reach": 9217,
+   "wrong_closes_within_reach": 0,
+   "look_alikes_within_reach": 2201,
+   "look_alikes_share_within_reach": 0.1928
+  },
+  "15": {
+   "debits": 13101,
+   "right_closes": 9718,
+   "wrong_closes": 95,
+   "look_alikes": 2553,
+   "none": 735,
+   "wrong_closes_per_1000_debits": 7.3,
+   "right_closes_share_of_debits": 0.7418,
+   "look_alikes_share_of_debits": 0.1949,
+   "within_reach": 12195,
+   "right_closes_within_reach": 9718,
+   "wrong_closes_within_reach": 0,
+   "look_alikes_within_reach": 2477,
+   "look_alikes_share_within_reach": 0.2031
+  },
+  "20": {
+   "debits": 13101,
+   "right_closes": 9915,
+   "wrong_closes": 57,
+   "look_alikes": 2685,
+   "none": 444,
+   "wrong_closes_per_1000_debits": 4.4,
+   "right_closes_share_of_debits": 0.7568,
+   "look_alikes_share_of_debits": 0.2049,
+   "within_reach": 12546,
+   "right_closes_within_reach": 9915,
+   "wrong_closes_within_reach": 0,
+   "look_alikes_within_reach": 2631,
+   "look_alikes_share_within_reach": 0.2097
+  },
+  "30": {
+   "debits": 13101,
+   "right_closes": 10065,
+   "wrong_closes": 24,
+   "look_alikes": 2817,
+   "none": 195,
+   "wrong_closes_per_1000_debits": 1.8,
+   "right_closes_share_of_debits": 0.7683,
+   "look_alikes_share_of_debits": 0.215,
+   "within_reach": 12849,
+   "right_closes_within_reach": 10065,
+   "wrong_closes_within_reach": 0,
+   "look_alikes_within_reach": 2784,
+   "look_alikes_share_within_reach": 0.2167
+  },
+  "40": {
+   "debits": 13101,
+   "right_closes": 10120,
+   "wrong_closes": 19,
+   "look_alikes": 2865,
+   "none": 97,
+   "wrong_closes_per_1000_debits": 1.5,
+   "right_closes_share_of_debits": 0.7725,
+   "look_alikes_share_of_debits": 0.2187,
+   "within_reach": 12961,
+   "right_closes_within_reach": 10120,
+   "wrong_closes_within_reach": 0,
+   "look_alikes_within_reach": 2841,
+   "look_alikes_share_within_reach": 0.2192
+  },
+  "60": {
+   "debits": 13101,
+   "right_closes": 10121,
+   "wrong_closes": 5,
+   "look_alikes": 2930,
+   "none": 45,
+   "wrong_closes_per_1000_debits": 0.4,
+   "right_closes_share_of_debits": 0.7725,
+   "look_alikes_share_of_debits": 0.2236,
+   "within_reach": 13038,
+   "right_closes_within_reach": 10121,
+   "wrong_closes_within_reach": 0,
+   "look_alikes_within_reach": 2917,
+   "look_alikes_share_within_reach": 0.2237
+  }
+ },
+ "by_payment_type_county": {
+  "3": {
+   "Paper": {
+    "debits": 8039,
+    "within_reach": 1367,
+    "forced_pick_wrong_within_reach": 75,
+    "forced_pick_wrong_per_1000_within_reach": 54.9,
+    "one_fit_wrong_closes": 395,
+    "one_fit_wrong_closes_per_1000_debits": 49.1
+   },
+   "Electronic": {
+    "debits": 5062,
+    "within_reach": 5062,
+    "forced_pick_wrong_within_reach": 1112,
+    "forced_pick_wrong_per_1000_within_reach": 219.7,
+    "one_fit_wrong_closes": 0,
+    "one_fit_wrong_closes_per_1000_debits": 0.0
+   }
+  },
+  "5": {
+   "Paper": {
+    "debits": 8039,
+    "within_reach": 3368,
+    "forced_pick_wrong_within_reach": 160,
+    "forced_pick_wrong_per_1000_within_reach": 47.5,
+    "one_fit_wrong_closes": 371,
+    "one_fit_wrong_closes_per_1000_debits": 46.2
+   },
+   "Electronic": {
+    "debits": 5062,
+    "within_reach": 5062,
+    "forced_pick_wrong_within_reach": 1145,
+    "forced_pick_wrong_per_1000_within_reach": 226.2,
+    "one_fit_wrong_closes": 0,
+    "one_fit_wrong_closes_per_1000_debits": 0.0
+   }
+  },
+  "10": {
+   "Paper": {
+    "debits": 8039,
+    "within_reach": 6356,
+    "forced_pick_wrong_within_reach": 389,
+    "forced_pick_wrong_per_1000_within_reach": 61.2,
+    "one_fit_wrong_closes": 177,
+    "one_fit_wrong_closes_per_1000_debits": 22.0
+   },
+   "Electronic": {
+    "debits": 5062,
+    "within_reach": 5062,
+    "forced_pick_wrong_within_reach": 1279,
+    "forced_pick_wrong_per_1000_within_reach": 252.7,
+    "one_fit_wrong_closes": 0,
+    "one_fit_wrong_closes_per_1000_debits": 0.0
+   }
+  },
+  "15": {
+   "Paper": {
+    "debits": 8039,
+    "within_reach": 7133,
+    "forced_pick_wrong_within_reach": 534,
+    "forced_pick_wrong_per_1000_within_reach": 74.9,
+    "one_fit_wrong_closes": 95,
+    "one_fit_wrong_closes_per_1000_debits": 11.8
+   },
+   "Electronic": {
+    "debits": 5062,
+    "within_reach": 5062,
+    "forced_pick_wrong_within_reach": 1331,
+    "forced_pick_wrong_per_1000_within_reach": 262.9,
+    "one_fit_wrong_closes": 0,
+    "one_fit_wrong_closes_per_1000_debits": 0.0
+   }
+  },
+  "20": {
+   "Paper": {
+    "debits": 8039,
+    "within_reach": 7484,
+    "forced_pick_wrong_within_reach": 643,
+    "forced_pick_wrong_per_1000_within_reach": 85.9,
+    "one_fit_wrong_closes": 57,
+    "one_fit_wrong_closes_per_1000_debits": 7.1
+   },
+   "Electronic": {
+    "debits": 5062,
+    "within_reach": 5062,
+    "forced_pick_wrong_within_reach": 1367,
+    "forced_pick_wrong_per_1000_within_reach": 270.1,
+    "one_fit_wrong_closes": 0,
+    "one_fit_wrong_closes_per_1000_debits": 0.0
+   }
+  },
+  "30": {
+   "Paper": {
+    "debits": 8039,
+    "within_reach": 7787,
+    "forced_pick_wrong_within_reach": 762,
+    "forced_pick_wrong_per_1000_within_reach": 97.9,
+    "one_fit_wrong_closes": 24,
+    "one_fit_wrong_closes_per_1000_debits": 3.0
+   },
+   "Electronic": {
+    "debits": 5062,
+    "within_reach": 5062,
+    "forced_pick_wrong_within_reach": 1403,
+    "forced_pick_wrong_per_1000_within_reach": 277.2,
+    "one_fit_wrong_closes": 0,
+    "one_fit_wrong_closes_per_1000_debits": 0.0
+   }
+  },
+  "40": {
+   "Paper": {
+    "debits": 8039,
+    "within_reach": 7899,
+    "forced_pick_wrong_within_reach": 822,
+    "forced_pick_wrong_per_1000_within_reach": 104.1,
+    "one_fit_wrong_closes": 19,
+    "one_fit_wrong_closes_per_1000_debits": 2.4
+   },
+   "Electronic": {
+    "debits": 5062,
+    "within_reach": 5062,
+    "forced_pick_wrong_within_reach": 1415,
+    "forced_pick_wrong_per_1000_within_reach": 279.5,
+    "one_fit_wrong_closes": 0,
+    "one_fit_wrong_closes_per_1000_debits": 0.0
+   }
+  },
+  "60": {
+   "Paper": {
+    "debits": 8039,
+    "within_reach": 7976,
+    "forced_pick_wrong_within_reach": 887,
+    "forced_pick_wrong_per_1000_within_reach": 111.2,
+    "one_fit_wrong_closes": 5,
+    "one_fit_wrong_closes_per_1000_debits": 0.6
+   },
+   "Electronic": {
+    "debits": 5062,
+    "within_reach": 5062,
+    "forced_pick_wrong_within_reach": 1433,
+    "forced_pick_wrong_per_1000_within_reach": 283.1,
+    "one_fit_wrong_closes": 0,
+    "one_fit_wrong_closes_per_1000_debits": 0.0
+   }
+  }
+ },
+ "exact_cents_first_county": {
+  "3": {
+   "within_reach": 6429,
+   "right_within_reach": 5381,
+   "wrong_within_reach": 1048,
+   "wrong_per_1000_within_reach": 163.0
+  },
+  "5": {
+   "within_reach": 8430,
+   "right_within_reach": 7294,
+   "wrong_within_reach": 1136,
+   "wrong_per_1000_within_reach": 134.8
+  },
+  "10": {
+   "within_reach": 11418,
+   "right_within_reach": 9996,
+   "wrong_within_reach": 1422,
+   "wrong_per_1000_within_reach": 124.5
+  },
+  "15": {
+   "within_reach": 12195,
+   "right_within_reach": 10624,
+   "wrong_within_reach": 1571,
+   "wrong_per_1000_within_reach": 128.8
+  },
+  "20": {
+   "within_reach": 12546,
+   "right_within_reach": 10870,
+   "wrong_within_reach": 1676,
+   "wrong_per_1000_within_reach": 133.6
+  },
+  "30": {
+   "within_reach": 12849,
+   "right_within_reach": 11052,
+   "wrong_within_reach": 1797,
+   "wrong_per_1000_within_reach": 139.9
+  },
+  "40": {
+   "within_reach": 12961,
+   "right_within_reach": 11114,
+   "wrong_within_reach": 1847,
+   "wrong_per_1000_within_reach": 142.5
+  },
+  "60": {
+   "within_reach": 13038,
+   "right_within_reach": 11127,
+   "wrong_within_reach": 1911,
+   "wrong_per_1000_within_reach": 146.6
+  }
+ },
+ "predictions": {
+  "U1": {
+   "claim": "one-fit wrong closes at or above 1 per 1,000 debits at 5, 10 and 15 business days",
+   "held": true
+  },
+  "U2": {
+   "claim": "at 60 business days one-fit wrong closes under 1 per 1,000 debits",
+   "held": true
+  },
+  "U3": {
+   "claim": "at 5 business days look-alikes are 25% to 45% of debits within reach, and a larger share at 60 than at 5",
+   "held": false
+  },
+  "U4": {
+   "claim": "at 5 business days the one-fit rule closes right 35% to 55% of all debits",
+   "held": true
+  },
+  "U5": {
+   "claim": "at 5 business days the forced pick's wrong rate within reach is higher for paper than for electronic debits",
+   "held": false
+  },
+  "U6": {
+   "claim": "at 5 business days exact-cents-first wrong picks within reach are 1,121 to 1,200",
+   "held": true
+  }
+ }
+}

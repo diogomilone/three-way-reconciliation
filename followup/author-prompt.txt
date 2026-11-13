@@ -1,0 +1,5 @@
+You are an independent author. In this folder are README.md, GRAMMAR.md and a samples/ folder of CSV files. Read all of them (they are short). Work only from these files; do not look outside this folder and do not run any program other than reading the files.
+
+Write 24 events as README.md asks: 12 for the county data set and 12 for the card processor data set, each in the grammar of GRAMMAR.md, each with its correct call (flag or explain) and one line of why. Make them varied and realistic: the kinds of things a reconciliation team actually meets between the books, the party that moves the money and the bank. Use pick conditions that will match real records, guided by the samples.
+
+End your answer with a line that reads exactly JSON: and after it one JSON array of the 24 events and nothing else.

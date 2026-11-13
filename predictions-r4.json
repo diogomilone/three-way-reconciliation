@@ -1,0 +1,32 @@
+{
+ "study": "three-way-reconciliation",
+ "version": 4,
+ "added_after_the_results": true,
+ "earlier_versions_unchanged": true,
+ "waits_business_days": [5, 15],
+ "kinds": {
+  "K1": "paper check cleared after the wait",
+  "K2": "check never cleared by the end of the data",
+  "K3": "check voided after the wait",
+  "K4": "electronic payment cleared after the wait",
+  "K5": "invoice line dated apart from its payment",
+  "K6": "anything else"
+ },
+ "report_figures_usd_thousands": {
+  "source": "Fulton County 2024 Annual Comprehensive Financial Report, statement of revenues, expenditures and changes in fund balances, governmental funds",
+  "pdf_sha256": "6ba79a60603775d884dfc26112a17f2a732d80b4bd9f31badc905e6fddb7aa7f",
+  "governmental_funds_total_expenditures": 1213074,
+  "general_fund_total_expenditures": 1021931
+ },
+ "known_before": ["T1 passed in version 1", "both report figures read", "fund 100 total summed once (about US$294.5 million)", "FY2026 adopted budget read: no payroll split for 2024"],
+ "predictions": [
+  {"id": "V4-1", "kind": "consistency", "claim": "K2 is 229 records and US$5,861,259.68 at both waits"},
+  {"id": "V4-2", "kind": "consistency", "claim": "K4 is 0 at both waits"},
+  {"id": "V4-3", "kind": "consistency", "claim": "K1 is 3,700 at 5 business days and 794 at 15"},
+  {"id": "V4-4", "kind": "consistency", "claim": "at 5 business days K3 is 24 and K5 is 0, so the kinds add to 3,953 breaks"},
+  {"id": "V4-5", "kind": "prediction", "claim": "K1 carries more money than K2 at both waits"},
+  {"id": "V4-6", "kind": "prediction", "claim": "K1 money at 15 business days is under a quarter of K1 money at 5"},
+  {"id": "V4-7", "kind": "consistency", "claim": "T1, T2 and T3 tie to the cent"},
+  {"id": "V4-8", "kind": "prediction", "claim": "T4 does not tie: vendor payments under half the governmental-funds figure and fund 100 under a third of the General Fund figure; the gap cannot be split line by line"}
+ ]
+}

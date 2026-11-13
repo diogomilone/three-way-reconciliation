@@ -1,0 +1,104 @@
+{
+ "study": "three-way-reconciliation",
+ "version": 4,
+ "added_after_the_results": true,
+ "break_table_county_whole_payment": {
+  "5": {
+   "K1": {
+    "breaks": 3700,
+    "usd": 122995934.27
+   },
+   "K2": {
+    "breaks": 229,
+    "usd": 5861259.68
+   },
+   "K3": {
+    "breaks": 24,
+    "usd": 1184977.71
+   },
+   "K4": {
+    "breaks": 0,
+    "usd": 0.0
+   },
+   "K5": {
+    "breaks": 0,
+    "usd": 0.0
+   },
+   "K6": {
+    "breaks": 0,
+    "usd": 0.0
+   },
+   "all": {
+    "breaks": 3953,
+    "usd": 130042171.66
+   },
+   "break_age_check": 3953
+  },
+  "15": {
+   "K1": {
+    "breaks": 794,
+    "usd": 19624485.17
+   },
+   "K2": {
+    "breaks": 229,
+    "usd": 5861259.68
+   },
+   "K3": {
+    "breaks": 24,
+    "usd": 1184977.71
+   },
+   "K4": {
+    "breaks": 0,
+    "usd": 0.0
+   },
+   "K5": {
+    "breaks": 0,
+    "usd": 0.0
+   },
+   "K6": {
+    "breaks": 0,
+    "usd": 0.0
+   },
+   "all": {
+    "breaks": 1047,
+    "usd": 26670722.56
+   },
+   "break_age_check": 1047
+  }
+ },
+ "tie_out_county": {
+  "T1_status_totals_usd": {
+   "all": 605400363.83,
+   "Disbursed": 5861259.68,
+   "Paid": 598354126.44,
+   "Cancelled": 1184977.71
+  },
+  "T1_gap_cents": 0,
+  "T2_bank_lines_usd": 598354126.44,
+  "T2_gap_cents": 0,
+  "T2_is_identity": true,
+  "T3_bank_lines": 13101,
+  "T3_wrong_pairings": 0,
+  "T3_every_pair_to_the_cent": true,
+  "T4_report": "Fulton County 2024 Annual Comprehensive Financial Report, statement of revenues, expenditures and changes in fund balances, governmental funds",
+  "T4_pdf_sha256": "6ba79a60603775d884dfc26112a17f2a732d80b4bd9f31badc905e6fddb7aa7f",
+  "T4_vendor_payments_usd": 605400363.83,
+  "T4_governmental_funds_expenditures_usd": 1213074000,
+  "T4_gap_all_funds_usd": 607673636.17,
+  "T4_share_all_funds": 0.4991,
+  "T4_fund_100_vendor_payments_usd": 294472660.79,
+  "T4_general_fund_expenditures_usd": 1021931000,
+  "T4_gap_general_fund_usd": 727458339.21,
+  "T4_share_general_fund": 0.2882
+ },
+ "predictions": {
+  "V4-1": true,
+  "V4-2": true,
+  "V4-3": true,
+  "V4-4": true,
+  "V4-5": true,
+  "V4-6": true,
+  "V4-7": true,
+  "V4-8": true
+ }
+}

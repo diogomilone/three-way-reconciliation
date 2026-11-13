@@ -1,0 +1,31 @@
+{
+ "study": "three-way-reconciliation",
+ "version": 3,
+ "added_after_the_results": true,
+ "earlier_versions_unchanged": "results/results-r1.json, results/results-heldout.json, results/results-r2.json and results/results-r2-breakdown.json stay as scored",
+ "windows_business_days": [3, 5, 10, 15, 20, 30, 40, 60],
+ "measures": {
+  "a": "one-fit rule: each county bank debit's check number treated as unreadable in turn; close only when exactly one open payment within US$1.00 issued 0 to W business days before fits; two or more go to a person; wrong closes per 1,000 debits over all debits",
+  "b": "by payment type: the version 2 forced pick (wrong per 1,000 debits within reach) and the one-fit rule (wrong closes per 1,000 debits), paper and electronic separately",
+  "c": "exact cents first: the version 2 forced pick preferring payments equal to the debit to the cent, then the oldest, then the lowest id"
+ },
+ "known_bounds": {
+  "one_fit_wrong_closes_within_reach": 0,
+  "one_fit_wrong_closes_at_most": {"3": 588, "5": 560, "10": 299, "15": 171, "20": 111, "30": 57, "40": 43, "60": 18},
+  "look_alikes_within_reach_at_5_at_least": 1305,
+  "exact_cents_first_wrong_within_reach_at_5": [1121, 1305]
+ },
+ "predictions": [
+  {"id": "U1", "measure": "a", "claim": "one-fit wrong closes at or above 1 per 1,000 debits at 5, 10 and 15 business days", "opposite": "under 1 per 1,000 at any of them"},
+  {"id": "U2", "measure": "a", "claim": "at 60 business days one-fit wrong closes under 1 per 1,000 debits", "opposite": "at or above 1 per 1,000"},
+  {"id": "U3", "measure": "a", "claim": "at 5 business days look-alikes are 25% to 45% of debits within reach, and a larger share at 60 than at 5", "opposite": "either part fails"},
+  {"id": "U4", "measure": "a", "claim": "at 5 business days the one-fit rule closes right 35% to 55% of all debits", "opposite": "outside that range"},
+  {"id": "U5", "measure": "b", "claim": "at 5 business days the forced pick's wrong rate within reach is higher for paper than for electronic debits", "opposite": "as high or higher for electronic"},
+  {"id": "U6", "measure": "c", "claim": "at 5 business days exact-cents-first wrong picks within reach are 1,121 to 1,200", "opposite": "above 1,200"}
+ ],
+ "call_rule": {
+  "all_windows_at_or_above_1_per_1000": "suggest pairs, never close them",
+  "some_window_under_1_per_1000": "close alone only when one payment fits, at the narrowest such window; send look-alikes to a person",
+  "statement_test": "count wrong closes over all debits; zero in at least 3,000 debits puts the 95% upper bound under 1 per 1,000"
+ }
+}

@@ -1,0 +1,20 @@
+{
+ "study": "three-way-reconciliation",
+ "round": "r1",
+ "declared_before_any_scored_run": true,
+ "window_business_days": 5,
+ "expected_finding": "On the county's real payments, the many-to-one rule (R3) leaves the least money unexplained at each close and makes the most right calls on planted events; the one-to-one rules (R1, R2) cannot pair payments made of several invoice lines; R2's amount-and-date fallback pairs real payments that share an amount with the wrong bank line, so it hides some planted spurious debits; all three rules miss an invoice paid twice because every record agrees; a 5-day window flags most paper checks before they clear.",
+ "opposite": "The county's amounts are distinct enough that the fallback makes no false matches, so R2 is as safe as R3 on the bank side; or R3's netting hides planted events that a one-to-one rule flags.",
+ "predictions": [
+  {"id": "P1", "data": "county clean", "claim": "R3 leaves less money unexplained than R1 and than R2 at every 2024 month-end close", "opposite": "R1 or R2 leaves less at some month end"},
+  {"id": "P2", "data": "county clean", "claim": "R1's mean unexplained money over 2024 closes is at least 2 times R3's", "opposite": "less than 2 times"},
+  {"id": "P3", "data": "county clean", "claim": "R2 makes at least 1 false match per 1,000 bank lines", "opposite": "fewer than 1 per 1,000"},
+  {"id": "P4", "data": "county planted", "claim": "R2 fails to flag at least 1 of the 40 instances of C1 and C6 through a false match", "opposite": "R2 flags all 40 or misses only without a false match"},
+  {"id": "P5", "data": "county planted", "claim": "each rule flags at most 2 of the 20 C4 instances (invoice paid twice)", "opposite": "a rule flags 3 or more"},
+  {"id": "P6", "data": "county planted", "claim": "R3 makes the right call on all 20 instances of each of C1, C3, C5, C6 and C8", "opposite": "R3 misses at least one"},
+  {"id": "P7", "data": "county clean, window sweep", "claim": "at W = 5, at least half of Paper payments that cleared are a break at some close before clearing; the share falls under 10% only at W of 15 or more", "opposite": "under 10% already at W = 5 or 10"},
+  {"id": "P8", "data": "processor clean", "claim": "R3 leaves less money unexplained than R1 and R2 at every month-end close, and R1's and R2's open items include every fee row older than W", "opposite": "R1 or R2 leaves less at some month end"},
+  {"id": "P9", "data": "processor planted", "claim": "R3 flags none of the 20 X5 (fee overcharge) and all 20 X6 (rounding, a wrong call); R2 flags all 20 X1 (late settlement, a wrong call) and none of the 20 X6", "opposite": "any of the four counts differs"},
+  {"id": "P10", "data": "held-out events", "claim": "R3 makes the most right calls of the three rules on the independent author's events, on each data set", "opposite": "R1 or R2 makes as many or more on a data set"}
+ ]
+}
